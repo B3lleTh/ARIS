@@ -19,28 +19,29 @@ app.use(cors());
 app.use(express.json());
 
 // ==========================
+// RUTA PRINCIPAL (PARA RENDER)
+// ==========================
+app.get("/", (req, res) => {
+  res.send("Servidor backend funcionando correctamente.");
+});
+
+// ==========================
 // RUTA: Obtener Conteo de Estudiantes
 // ==========================
 app.get('/api/stats/students', async (req, res) => {
     try {
-        // Llama a la función asíncrona que consulta la base de datos
         const count = await getActiveStudentsCount();
-
-        // Envía el número como una respuesta JSON
         res.json({ studentsCount: count });
-        
     } catch (error) {
         console.error("❌ Error en la ruta /api/stats/students:", error);
-        // Respuesta de error estándar en caso de fallo de DB
         res.status(500).json({ message: "Error al obtener estadísticas.", studentsCount: 0 });
     }
 });
 
-
 // ==========================
-// Registrar usuario (MANEJO DE DUPLICADOS)
+// Registrar usuario
 // ==========================
-app.post('/api/registro', async (req, res) => { // <-- 1. Hacer la función asíncrona
+app.post('/api/registro', async (req, res) => {
     const { email, nombre, carrera, recibir } = req.body;
 
     const sql = `
@@ -49,38 +50,30 @@ app.post('/api/registro', async (req, res) => { // <-- 1. Hacer la función así
     `;
     
     try {
-        // 2. Usar await para esperar la promesa
         const [result] = await db.query(sql, [email, nombre, carrera, recibir]); 
         
-        // Si la inserción es exitosa (código 201 Created)
         res.status(201).json({ 
             success: true,
             message: "Usuario registrado correctamente." 
         });
 
-    } catch (err) { // <-- 3. Capturar la excepción
-        
-        // Checamos si el error es DUPLICADO (código 1062 de MySQL)
+    } catch (err) {
         if (err.code === 'ER_DUP_ENTRY' || err.errno === 1062) {
             console.warn(`⚠️ Intento de registro duplicado para: ${email}`);
-            
-            // Si es duplicado, enviamos el 409 (Conflict)
             return res.status(409).json({ 
                 success: false,
                 message: "Este correo ya está registrado." 
             });
         }
 
-        // Si es cualquier otro error del servidor o DB
         console.error("❌ Error desconocido guardando usuario:", err);
-        // Si es un error interno, enviamos 500
+
         return res.status(500).json({ 
             success: false,
             message: "Error en el servidor al intentar registrar." 
         });
     }
 });
-
 
 // ==========================
 // Gemini
@@ -116,10 +109,9 @@ app.post('/api/gemini', async (req, res) => {
 
     } catch (error) {
         console.error("❌ ERROR GEMINI:", error);
-        res.json({ reply: "Estas ? en mantenimiento." });
+        res.json({ reply: "Estas 🛠️ en mantenimiento." });
     }
 });
-
 
 // ==========================
 // INICIAR SERVIDOR
