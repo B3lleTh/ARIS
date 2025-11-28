@@ -1,6 +1,7 @@
 document.addEventListener("DOMContentLoaded", function() {
     
-    // Selectores para las secciones que deben tener Lazy Loading (todo lo que está fuera de la vista inicial)
+    // Selectores para las secciones que deben tener Lazy Loading 
+    // (todo lo que está fuera de la vista inicial)
     const sectionsToLazyLoadSelectors = 
         ".advertise-slider, .purpose-section, .who-section, .careers-promo, " +
         ".promo-card-section, .faq-section, .dynamic-cards-section, " +

@@ -2,46 +2,48 @@
 
 /* Contenedor del Modal (Fondo oscuro y centrado) */
 .result-modal {
-    position: fixed;
+    position: fixed; /* Posición fija sobre toda la pantalla */
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
+    width: 100%; /* Ocupa todo el ancho */
+    height: 100%; /* Ocupa toda la altura */
     background: rgba(0, 0, 0, 0.7); /* Fondo semi-transparente */
     display: none; /* Oculto por defecto */
-    justify-content: center;
-    align-items: center;
-    z-index: 1000; /* Asegura que esté por encima de todo */
-    opacity: 0;
-    transition: opacity 0.3s ease;
+    justify-content: center; /* Centrado horizontal */
+    align-items: center; /* Centrado vertical */
+    z-index: 1000; /* Por encima de todo el contenido */
+    opacity: 0; /* Transparente por defecto */
+    transition: opacity 0.3s ease; /* Animación de aparición/desaparición */
 }
 
 /* Modal visible */
 .result-modal.active {
-    display: flex;
-    opacity: 1;
+    display: flex; /* Cambia a flex para centrar contenido */
+    opacity: 1; /* Opacidad completa al estar activo */
 }
 
 /* Contenido de la tarjeta del Modal */
 .modal-content {
     background: #1e1e1e; /* Fondo oscuro, futurista */
-    color: #f1f1f1;
-    padding: 30px;
-    border-radius: 15px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-    text-align: center;
-    max-width: 400px;
-    transform: translateY(-20px);
-    transition: transform 0.3s ease;
+    color: #f1f1f1; /* Texto claro */
+    padding: 30px; /* Espaciado interno */
+    border-radius: 15px; /* Bordes redondeados */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5); /* Sombra profunda */
+    text-align: center; /* Texto centrado */
+    max-width: 400px; /* Ancho máximo */
+    transform: translateY(-20px); /* Levantado inicialmente para animación */
+    transition: transform 0.3s ease; /* Animación suave */
 }
 
+/* Animación al activar modal */
 .result-modal.active .modal-content {
-    transform: translateY(0);
+    transform: translateY(0); /* Modal baja a su posición final */
 }
 
+/* Icono del Modal */
 .modal-icon {
-    font-size: 3rem;
-    margin-bottom: 15px;
+    font-size: 3rem; /* Tamaño grande */
+    margin-bottom: 15px; /* Separación del texto */
 }
 
 /* Estilos específicos para éxito */
@@ -49,7 +51,7 @@
     color: #4CAF50; /* Verde */
 }
 .modal-content.success h3 {
-    color: #4CAF50;
+    color: #4CAF50; /* Título en verde */
 }
 
 /* Estilos específicos para error/duplicado */
@@ -57,10 +59,11 @@
     color: #FF5733; /* Rojo/Naranja */
 }
 .modal-content.error h3 {
-    color: #FF5733;
+    color: #FF5733; /* Título en rojo/naranja */
 }
 
+/* Mensaje del Modal */
 .modal-message {
-    font-size: 1.1rem;
-    margin-bottom: 20px;
+    font-size: 1.1rem; /* Tamaño de texto legible */
+    margin-bottom: 20px; /* Espaciado inferior */
 }

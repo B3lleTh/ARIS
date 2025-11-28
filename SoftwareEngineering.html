@@ -1,41 +1,66 @@
 <!DOCTYPE html>
+<!-- Define el tipo de documento como HTML5 -->
 <html lang="en">
+<!-- Inicio del documento HTML, idioma inglés -->
 
 <head>
+    <!-- Metadatos de la página -->
     <meta charset="UTF-8">
+    <!-- Codificación de caracteres UTF-8 -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Hace que el sitio sea responsive en dispositivos móviles -->
     <title>ARIS - Software Engineering</title>
+    <!-- Título de la pestaña del navegador -->
+
+    <!-- Enlaces a hojas de estilo externas -->
     <link rel="stylesheet" href="styles.css"> 
     <link rel="stylesheet" href="carrers.css">
     <link rel="stylesheet" href="SoftwareEngineering.css"> 
+
+    <!-- Icono de la página (favicon) -->
     <link rel="shortcut icon" href="Assets/Logo/Logo.ico" type="image/x-icon">
 </head>
 
 <body id="holy" style="padding-top: 0;">
+<!-- Inicio del cuerpo del documento, con ID y padding personalizado -->
 
     <main id="main">
+    <!-- Contenedor principal del contenido de la página -->
 
         <section class="career-detail-hero">
+        <!-- Sección hero para el detalle de la carrera -->
             <div class="career-header-content">
+                <!-- Contenido dentro del hero -->
                 <h1 class="career-main-title">Software Engineer Trajectory</h1>
+                <!-- Título principal de la carrera -->
                 <a href="/carrers.html" class="back-button">← Back to Trajectories</a>
+                <!-- Botón para regresar a la lista de carreras -->
             </div>
         </section>
 
         <hr class="separator">
+        <!-- Línea horizontal para separar secciones -->
 
         <section class="soft-skills-vault">
+        <!-- Sección de habilidades blandas esenciales -->
             <div class="vault-container">
+            <!-- Contenedor interno -->
                 <h2 class="section-title">Essential Soft Skills Vault</h2>
-                
+                <!-- Título de la sección -->
+
                 <div class="skills-grid">
-                    
+                <!-- Grid para organizar las tarjetas de habilidades -->
+
                     <div class="skill-card">
+                    <!-- Tarjeta individual de habilidad -->
                         <div class="skill-image-wrapper">
                             <img src="Assets/IMG/learn1.jpg" alt="Dynamic technology symbols showing adaptability">
+                            <!-- Imagen descriptiva de la habilidad -->
                         </div>
                         <h3>Adaptability & Learning</h3>
+                        <!-- Nombre de la habilidad -->
                         <p>The ability to quickly learn new languages, frameworks, and respond to changing project requirements without resistance.</p>
+                        <!-- Descripción de la habilidad -->
                     </div>
 
                     <div class="skill-card">
@@ -81,13 +106,22 @@
                 </div>
 
                 <div class="interview-prep-section">
+                <!-- Sección de preparación para entrevistas -->
                     <h3 class="subsection-title">Interview Prep: Behavioral Questions</h3>
+                    <!-- Subtítulo -->
                     <p class="prep-intro-text">Mastering the behavioral interview is key to demonstrating your cultural fit and professional maturity.</p>
+                    <!-- Introducción -->
+
                     <div class="highlight-q-a">
+                    <!-- Contenedor de pregunta y respuesta destacada -->
                         <p class="question"> | Q: Describe a time you had to pivot quickly due to a major technical shift.</p>
+                        <!-- Pregunta -->
                         <p class="answer">| A : I used the -- method -- to detail the situation, emphasizing proactive learning, clear communication to reset expectations, and delivering a functional solution within the revised constraints.</p>
+                        <!-- Respuesta -->
                     </div>
+
                     <a href="https://www.themuse.com/advice/behavioral-interview-questions-answers-examples" class="cta-button secondary" target="_blank">Master Your Behavioral Interview →</a>
+                    <!-- CTA externo a recurso de preparación de entrevistas -->
                 </div>
 
             </div>
@@ -96,11 +130,13 @@
         <hr class="separator">
 
         <section class="external-resources-section">
+        <!-- Sección de recursos externos de aprendizaje -->
             <div class="resource-container">
                 <h2 class="section-title">External Learning Resources</h2>
                 
                 <div class="resources-grid">
-                    
+                <!-- Grid de tarjetas de recursos -->
+
                     <div class="resource-card">
                         <div class="resource-icon-box">🧠</div>
                         <h3>VisuAlgo</h3>
@@ -129,16 +165,19 @@
         <hr class="separator">
         
         <section class="practice-section">
+        <!-- Sección de práctica interactiva -->
             <div class="practice-container">
                 <h2 class="section-title">Wanna Practice? <span>(10-Minute Challenge)</span></h2>
                 <p class="practice-intro">Select a discipline to challenge your skills with a timed problem designed for technical interviews.</p>
                 
                 <div class="practice-controls">
+                <!-- Botones de selección de disciplina -->
                     <button class="cta-button practice-btn active" data-discipline="frontend">Frontend Logic</button>
                     <button class="cta-button practice-btn" data-discipline="backend">Backend Algorithms</button>
                 </div>
                 
                 <div class="practice-exercise-card">
+                <!-- Contenedor para el ejercicio seleccionado -->
                     <h3 id="exercise-title">Select a discipline to begin.</h3>
                     <p id="exercise-description">The exercise description will appear here.</p>
                     
@@ -155,11 +194,13 @@
         <hr class="separator">
 
         <section class="internship-section">
+        <!-- Sección de oportunidades de prácticas -->
             <div class="internship-container">
                 <h2 class="section-title">Nayarit Internship Opportunities</h2>
                 
                 <div class="internship-grid">
-                    
+                <!-- Grid de tarjetas de prácticas -->
+
                     <div class="internship-card">
                         <div class="internship-image-wrapper">
                             <img src="Assets/IMG/code.jpg" alt="A modern co-working space in Tepic, Nayarit">
@@ -180,9 +221,10 @@
     </main>
 
     <footer class="inspirational-footer">
+    <!-- Footer inspiracional con citas y enlaces -->
         <div class="footer-content">
             <div class="footer-grid">
-                
+
                 <div class="quote-section">
                     <div class="quote-icon">❝</div>
                     <p class="quote-text">"Talk is cheap. Show me the code."</p>
@@ -217,5 +259,6 @@
     </footer>
     
     <script src="SoftwareDetail.js"></script>
+    <!-- Script para funcionalidades interactivas -->
 </body>
 </html>

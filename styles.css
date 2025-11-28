@@ -1,177 +1,226 @@
-/* Who We Are */
+/* ========================================================= */
+/* WHO WE ARE SECTION */
+/* ========================================================= */
+
+/* Contenedor principal de la sección Who We Are */
 .who-section {
-padding: 120px 50px;
-position: relative;
-z-index: 2;
-}
-.who-container {
-max-width: 1000px;
-margin: 0 auto;
-text-align: center;
-}
-.who-title {
-font-size: 3.8em;
-font-family: Orb;
-background: linear-gradient(45deg, var(--dorado), var(--naranja-cobre));
--webkit-background-clip: text;
-background-clip: text;
--webkit-text-fill-color: transparent;
-margin-bottom: 40px;
-}
-.who-content {
-background: linear-gradient(135deg, rgba(50, 41, 28, 0.8), rgba(92, 56, 31, 0.3));
-padding: 60px;
-border-radius: 25px;
-border: 2px solid var(--dorado);
-box-shadow: 0 10px 40px rgba(228, 169, 67, 0.3);
-position: relative;
-overflow: hidden;
-}
-.who-content::before {
-content: '';
-position: absolute;
-top: 0;
-left: 0;
-width: 100%;
-height: 100%;
-background: linear-gradient(45deg, transparent 30%, rgba(228, 169, 67, 0.1) 50%, transparent 70%);
-animation: shine 3s ease-in-out infinite;
-}
-@keyframes shine {
-0%, 100% { transform: translateX(-100%); }
-50% { transform: translateX(100%); }
-}
-.who-text {
-position: relative;
-z-index: 1;
-font-size: 1.3em;
-line-height: 1.9;
-color: var(--beige-grisaceo);
-margin-bottom: 30px;
-text-align: justify;
-}
-.who-stats {
-display: flex;
-justify-content: space-around;
-margin-top: 50px;
-flex-wrap: wrap;
-gap: 30px;
-position: relative;
-z-index: 1;
-}
-.stat-item {
-text-align: center;
-}
-.stat-number {
-font-size: 3em;
-font-weight: bold;
-background: linear-gradient(45deg, var(--dorado), var(--naranja-cobre));
--webkit-background-clip: text;
-background-clip: text;
--webkit-text-fill-color: transparent;
-display: block;
-margin-bottom: 10px;
-}
-.stat-label {
-color: var(--dorado);
-font-size: 1.1em;
-}
-/* Careers Promo */
-.careers-promo {
-padding: 120px 50px;
-background: linear-gradient(180deg, transparent, rgba(92, 56, 31, 0.1), transparent);
-position: relative;
-z-index: 2;
-}
-.careers-container {
-max-width: 1400px;
-margin: 0 auto;
-}
-.careers-title {
-text-align: center;
-font-size: 3.8em;
-font-family: Orb;
-background: linear-gradient(45deg, var(--dorado), var(--naranja-cobre));
--webkit-background-clip: text;
-background-clip: text;
--webkit-text-fill-color: transparent;
-margin-bottom: 60px;
-}
-.careers-grid {
-display: grid;
-grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-gap: 35px;
-}
-.career-card {
-background: linear-gradient(135deg, rgba(50, 41, 28, 0.7), rgba(92, 56, 31, 0.2));
-padding: 35px;
-border-radius: 18px;
-border: 2px solid var(--naranja-cobre);
-transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-cursor: pointer;
-position: relative;
-overflow: hidden;
-}
-.career-card::before {
-content: '';
-position: absolute;
-top: 0;
-left: 0;
-width: 100%;
-height: 100%;
-background: linear-gradient(135deg, var(--dorado), var(--naranja-cobre));
-opacity: 0;
-transition: opacity 0.4s ease;
-}
-.career-card:hover::before {
-opacity: 0.1;
-}
-.career-card:hover {
-transform: translateY(-15px) scale(1.03);
-border-color: var(--dorado);
-box-shadow: 0 20px 60px rgba(228, 169, 67, 0.5);
-}
-.career-card-content {
-position: relative;
-z-index: 1;
-}
-.career-icon {
-font-size: 3em;
-margin-bottom: 20px;
-display: inline-block;
-filter: drop-shadow(0 0 10px var(--dorado));
-}
-.career-card h3 {
-color: var(--dorado);
-font-size: 1.7em;
-margin-bottom: 15px;
-}
-.career-card p {
-color: var(--beige-grisaceo);
-line-height: 1.6;
-margin-bottom: 25px;
-}
-.career-link {
-display: inline-block;
-padding: 12px 30px;
-background: linear-gradient(45deg, var(--naranja-cobre), var(--dorado));
-color: var(--negro-verdoso);
-text-decoration: none;
-border-radius: 25px;
-font-weight: bold;
-transition: all 0.3s ease;
-}
-.career-link:hover {
-transform: scale(1.1);
-box-shadow: 0 5px 20px rgba(228, 169, 67, 0.6);
-border-color: var(--blanco-calido);
+    padding: 120px 50px; /* Espaciado superior/inferior y lateral */
+    position: relative; /* Permite elementos posicionados dentro */
+    z-index: 2; /* Asegura que esté por encima de elementos de fondo */
 }
 
+/* Contenedor interno centrado */
+.who-container {
+    max-width: 1000px; /* Limita ancho máximo */
+    margin: 0 auto; /* Centra horizontalmente */
+    text-align: center; /* Texto centrado */
+}
+
+/* Título de la sección Who We Are */
+.who-title {
+    font-size: 3.8em; /* Tamaño grande */
+    font-family: Orb; /* Fuente personalizada */
+    background: linear-gradient(45deg, var(--dorado), var(--naranja-cobre)); /* Degradado dorado-naranja */
+    -webkit-background-clip: text; /* Recorta el degradado al texto (WebKit) */
+    background-clip: text; /* Recorta el degradado al texto */
+    -webkit-text-fill-color: transparent; /* Hace el texto transparente para mostrar el degradado */
+    margin-bottom: 40px; /* Separación inferior */
+}
+
+/* Contenedor del contenido principal de Who We Are */
+.who-content {
+    background: linear-gradient(135deg, rgba(50, 41, 28, 0.8), rgba(92, 56, 31, 0.3)); /* Fondo degradado semitransparente */
+    padding: 60px; /* Espaciado interno */
+    border-radius: 25px; /* Bordes redondeados */
+    border: 2px solid var(--dorado); /* Borde dorado */
+    box-shadow: 0 10px 40px rgba(228, 169, 67, 0.3); /* Sombra suave */
+    position: relative; /* Para pseudo-elementos animados */
+    overflow: hidden; /* Oculta contenido que sobresalga */
+}
+
+/* Efecto de brillo animado sobre el contenido */
+.who-content::before {
+    content: ''; /* Elemento vacío */
+    position: absolute; /* Posicionamiento absoluto */
+    top: 0; left: 0;
+    width: 100%; height: 100%; /* Ocupa todo el contenedor */
+    background: linear-gradient(45deg, transparent 30%, rgba(228, 169, 67, 0.1) 50%, transparent 70%); /* Degradado para el brillo */
+    animation: shine 3s ease-in-out infinite; /* Animación infinita */
+}
+
+/* Animación de brillo */
+@keyframes shine {
+    0%, 100% { transform: translateX(-100%); }
+    50% { transform: translateX(100%); }
+}
+
+/* Texto descriptivo */
+.who-text {
+    position: relative; /* Para estar por encima del pseudo-elemento */
+    z-index: 1; /* Asegura que esté encima */
+    font-size: 1.3em; /* Tamaño de fuente legible */
+    line-height: 1.9; /* Altura de línea */
+    color: var(--beige-grisaceo); /* Color del texto */
+    margin-bottom: 30px; /* Espaciado inferior */
+    text-align: justify; /* Justifica el texto */
+}
+
+/* Contenedor de estadísticas */
+.who-stats {
+    display: flex; /* Flexbox para distribuir estadísticas */
+    justify-content: space-around; /* Espacio uniforme entre ellas */
+    margin-top: 50px; /* Separación superior */
+    flex-wrap: wrap; /* Permite que se ajusten en varias filas */
+    gap: 30px; /* Separación entre elementos */
+    position: relative;
+    z-index: 1;
+}
+
+/* Cada estadística individual */
+.stat-item {
+    text-align: center; /* Centra contenido de cada estadística */
+}
+
+/* Número de la estadística */
+.stat-number {
+    font-size: 3em; /* Tamaño grande */
+    font-weight: bold; /* Negrita */
+    background: linear-gradient(45deg, var(--dorado), var(--naranja-cobre)); /* Degradado dorado */
+    -webkit-background-clip: text; /* Recorta al texto (WebKit) */
+    background-clip: text; /* Recorta al texto */
+    -webkit-text-fill-color: transparent; /* Texto transparente para mostrar degradado */
+    display: block;
+    margin-bottom: 10px; /* Separación inferior */
+}
+
+/* Etiqueta de la estadística */
+.stat-label {
+    color: var(--dorado); /* Color dorado */
+    font-size: 1.1em; /* Tamaño de fuente */
+}
+
+/* ========================================================= */
+/* CAREERS PROMO SECTION */
+/* ========================================================= */
+
+/* Contenedor principal */
+.careers-promo {
+    padding: 120px 50px; /* Padding general */
+    background: linear-gradient(180deg, transparent, rgba(92, 56, 31, 0.1), transparent); /* Degradado sutil */
+    position: relative;
+    z-index: 2;
+}
+
+/* Contenedor interno */
+.careers-container {
+    max-width: 1400px; /* Ancho máximo */
+    margin: 0 auto; /* Centrado horizontal */
+}
+
+/* Título de la sección */
+.careers-title {
+    text-align: center;
+    font-size: 3.8em;
+    font-family: Orb;
+    background: linear-gradient(45deg, var(--dorado), var(--naranja-cobre));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 60px;
+}
+
+/* Cuadrícula de tarjetas de carrera */
+.careers-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Columnas adaptables */
+    gap: 35px; /* Espacio entre tarjetas */
+}
+
+/* Cada tarjeta de carrera */
+.career-card {
+    background: linear-gradient(135deg, rgba(50, 41, 28, 0.7), rgba(92, 56, 31, 0.2)); /* Fondo degradado */
+    padding: 35px; /* Espaciado interno */
+    border-radius: 18px; /* Bordes redondeados */
+    border: 2px solid var(--naranja-cobre); /* Borde naranja */
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Transición suave */
+    cursor: pointer; /* Cursor de mano */
+    position: relative;
+    overflow: hidden;
+}
+
+/* Efecto hover con pseudo-elemento */
+.career-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: linear-gradient(135deg, var(--dorado), var(--naranja-cobre));
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+/* Hover de la tarjeta */
+.career-card:hover::before {
+    opacity: 0.1; /* Aparece brillo */
+}
+.career-card:hover {
+    transform: translateY(-15px) scale(1.03); /* Eleva y escala */
+    border-color: var(--dorado); /* Cambio de borde */
+    box-shadow: 0 20px 60px rgba(228, 169, 67, 0.5); /* Sombra intensa */
+}
+
+/* Contenido interno de la tarjeta */
+.career-card-content {
+    position: relative;
+    z-index: 1; /* Para estar encima del pseudo-elemento */
+}
+
+/* Icono de la carrera */
+.career-icon {
+    font-size: 3em;
+    margin-bottom: 20px;
+    display: inline-block;
+    filter: drop-shadow(0 0 10px var(--dorado)); /* Sombra del icono */
+}
+
+/* Título de la tarjeta */
+.career-card h3 {
+    color: var(--dorado);
+    font-size: 1.7em;
+    margin-bottom: 15px;
+}
+
+/* Texto descriptivo de la tarjeta */
+.career-card p {
+    color: var(--beige-grisaceo);
+    line-height: 1.6;
+    margin-bottom: 25px;
+}
+
+/* Botón / enlace de acción */
+.career-link {
+    display: inline-block;
+    padding: 12px 30px;
+    background: linear-gradient(45deg, var(--naranja-cobre), var(--dorado));
+    color: var(--negro-verdoso);
+    text-decoration: none;
+    border-radius: 25px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+/* Hover del botón */
+.career-link:hover {
+    transform: scale(1.1);
+    box-shadow: 0 5px 20px rgba(228, 169, 67, 0.6);
+    border-color: var(--blanco-calido);
+}
+
+/* Flecha animada en botones */
 .cta-btn, .career-link, .cta-nav {
   position: relative;
   overflow: hidden;
 }
-
 .cta-btn::after,
 .career-link::after {
   content: '→';
@@ -181,47 +230,30 @@ border-color: var(--blanco-calido);
   transform: translateX(-10px);
   transition: all 0.3s ease;
 }
-
 .cta-btn:hover::after,
 .career-link:hover::after {
   opacity: 1;
   transform: translateX(0);
   animation: arrowPulse 0.8s ease infinite;
 }
-
 @keyframes arrowPulse {
   0%, 100% { transform: translateX(0); }
   50% { transform: translateX(5px); }
 }
 
+/* Glitch effect para títulos */
 @keyframes glitch {
-  0% {
-    text-shadow: 0.05em 0 0 var(--dorado), -0.05em -0.025em 0 var(--naranja-cobre);
-  }
-  14% {
-    text-shadow: 0.05em 0 0 var(--dorado), -0.05em -0.025em 0 var(--naranja-cobre);
-  }
-  15% {
-    text-shadow: -0.05em -0.025em 0 var(--dorado), 0.05em 0.025em 0 var(--naranja-cobre);
-  }
-  49% {
-    text-shadow: -0.05em -0.025em 0 var(--dorado), 0.05em 0.025em 0 var(--naranja-cobre);
-  }
-  50% {
-    text-shadow: 0.025em 0.05em 0 var(--dorado), -0.025em -0.05em 0 var(--naranja-cobre);
-  }
-  99% {
-    text-shadow: 0.025em 0.05em 0 var(--dorado), -0.025em -0.05em 0 var(--naranja-cobre);
-  }
-  100% {
-    text-shadow: -0.025em 0 0 var(--dorado), -0.025em -0.025em 0 var(--naranja-cobre);
-  }
+  0% { text-shadow: 0.05em 0 0 var(--dorado), -0.05em -0.025em 0 var(--naranja-cobre); }
+  14% { text-shadow: 0.05em 0 0 var(--dorado), -0.05em -0.025em 0 var(--naranja-cobre); }
+  15% { text-shadow: -0.05em -0.025em 0 var(--dorado), 0.05em 0.025em 0 var(--naranja-cobre); }
+  49% { text-shadow: -0.05em -0.025em 0 var(--dorado), 0.05em 0.025em 0 var(--naranja-cobre); }
+  50% { text-shadow: 0.025em 0.05em 0 var(--dorado), -0.025em -0.05em 0 var(--naranja-cobre); }
+  99% { text-shadow: 0.025em 0.05em 0 var(--dorado), -0.025em -0.05em 0 var(--naranja-cobre); }
+  100% { text-shadow: -0.025em 0 0 var(--dorado), -0.025em -0.025em 0 var(--naranja-cobre); }
 }
+.hero-title:hover { animation: glitch 0.5s infinite; }
 
-.hero-title:hover {
-  animation: glitch 0.5s infinite;
-}
-
+/* Animación para escaneo cerebral */
 .brain::before {
   content: '';
   position: absolute;
@@ -231,26 +263,14 @@ border-color: var(--blanco-calido);
   border: 2px solid var(--dorado);
   animation: brainScan 2s linear infinite;
 }
-
 @keyframes brainScan {
-  0% {
-    clip-path: circle(0% at 50% 50%);
-    opacity: 0.8;
-  }
-  50% {
-    clip-path: circle(50% at 50% 50%);
-    opacity: 1;
-  }
-  100% {
-    clip-path: circle(100% at 50% 50%);
-    opacity: 0;
-  }
+  0% { clip-path: circle(0% at 50% 50%); opacity: 0.8; }
+  50% { clip-path: circle(50% at 50% 50%); opacity: 1; }
+  100% { clip-path: circle(100% at 50% 50%); opacity: 0; }
 }
 
-.cta-btn:active {
-  animation: buttonPress 0.2s ease;
-}
-
+/* Animación de presión de botones */
+.cta-btn:active { animation: buttonPress 0.2s ease; }
 @keyframes buttonPress {
   0%, 100% { transform: scale(1); }
   50% { transform: scale(0.95); }
@@ -259,15 +279,18 @@ border-color: var(--blanco-calido);
 /* ========================================================= */
 /* SECCIÓN CARD PROMOCIONAL (promo-card-section) */
 /* ========================================================= */
+
+/* Contenedor principal */
 .promo-card-section {
     padding: 80px 50px;
     background-color: var(--negro-verdoso);
     display: flex;
     flex-direction: column;
-    gap: 80px; /* Espacio entre las dos cards */
+    gap: 80px; /* Espacio entre las cards */
     align-items: center;
 }
 
+/* Card contenedor */
 .promo-card-container {
     max-width: 1200px;
     display: flex;
@@ -278,11 +301,9 @@ border-color: var(--blanco-calido);
     border: 1px solid var(--naranja-cobre);
     transition: transform 0.4s ease;
 }
+.promo-card-container:hover { transform: translateY(-5px); }
 
-.promo-card-container:hover {
-    transform: translateY(-5px);
-}
-
+/* Imagen de la card */
 .promo-card-image {
     width: 50%;
     min-height: 400px;
@@ -291,6 +312,7 @@ border-color: var(--blanco-calido);
     position: relative;
 }
 
+/* Contenido de la card */
 .promo-card-content {
     width: 50%;
     padding: 40px;
@@ -300,10 +322,10 @@ border-color: var(--blanco-calido);
     background: linear-gradient(135deg, rgba(50, 41, 28, 0.7), rgba(92, 56, 31, 0.2));
 }
 
+/* Badge de la card */
 .promo-badge {
     position: absolute;
-    top: 20px;
-    left: 20px;
+    top: 20px; left: 20px;
     background-color: var(--dorado);
     color: var(--negro-verdoso);
     padding: 5px 15px;
@@ -312,6 +334,7 @@ border-color: var(--blanco-calido);
     font-weight: bold;
 }
 
+/* Categoría de la card */
 .promo-category {
     color: var(--naranja-cobre);
     font-size: 1.1em;
@@ -320,6 +343,7 @@ border-color: var(--blanco-calido);
     letter-spacing: 1px;
 }
 
+/* Título de la card */
 .promo-card-title {
     font-family: Orb;
     font-size: 2.5em;
@@ -328,25 +352,27 @@ border-color: var(--blanco-calido);
     line-height: 1.2;
 }
 
+/* Texto descriptivo */
 .promo-card-text {
     color: var(--beige-grisaceo);
     line-height: 1.7;
     margin-bottom: 30px;
 }
 
+/* Características destacadas */
 .promo-features {
     display: flex;
     flex-wrap: wrap;
     gap: 15px;
     margin-bottom: 30px;
 }
-
 .promo-features span {
     color: var(--dorado);
     font-weight: bold;
     font-size: 0.9em;
 }
 
+/* Botón CTA */
 .promo-card-cta {
     display: inline-block;
     padding: 15px 35px;
@@ -360,160 +386,174 @@ border-color: var(--blanco-calido);
     text-align: center;
     max-width: 350px;
 }
-
 .promo-card-cta:hover {
     transform: translateY(-3px);
     box-shadow: 0 8px 20px rgba(228, 169, 67, 0.4);
     color: white;
 }
 
-/* Variante de Card (reverse) */
-.promo-card-reverse {
-    flex-direction: row-reverse;
-}
+/* Variante reverse de la card */
+.promo-card-reverse { flex-direction: row-reverse; }
 
 /* RESPONSIVE Card Promocional */
 @media (max-width: 900px) {
     .promo-card-container, .promo-card-reverse {
-        flex-direction: column; /* Apilar en vertical */
+        flex-direction: column; /* Apilar verticalmente */
         max-width: 500px;
     }
     .promo-card-image, .promo-card-content {
         width: 100%;
         min-height: 300px;
     }
-    .promo-card-content {
-        padding: 30px;
-    }
-    .promo-card-title {
-        font-size: 2em;
-    }
-    .promo-card-cta {
-        max-width: 100%;
-    }
+    .promo-card-content { padding: 30px; }
+    .promo-card-title { font-size: 2em; }
+    .promo-card-cta { max-width: 100%; }
 }
+
 /* ========================================================= */
 /* SECCIÓN FAQ - ACORDEÓN (faq-section) */
 /* ========================================================= */
+
+/* Contenedor principal de la sección FAQ */
 .faq-section {
-    padding: 100px 50px;
-    background-color: var(--negro-verdoso-claro);
-    position: relative;
-    z-index: 2;
+    padding: 100px 50px; /* Relleno superior/inferior y lateral */
+    background-color: var(--negro-verdoso-claro); /* Color de fondo de la sección */
+    position: relative; /* Para controlar elementos posicionados dentro */
+    z-index: 2; /* Asegura que esté por encima de ciertos elementos de fondo */
 }
+
+/* Contenedor interno centrado */
 .faq-container {
-    max-width: 900px;
-    margin: 0 auto;
+    max-width: 900px; /* Limita el ancho máximo */
+    margin: 0 auto; /* Centra horizontalmente */
 }
+
+/* Título de la sección FAQ */
 .faq-title {
-    text-align: center;
-    font-size: 3.8em;
-    font-family: Orb;
-    background: linear-gradient(45deg, var(--dorado), var(--naranja-cobre));
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-    margin-bottom: 60px;
+    text-align: center; /* Centrar el texto */
+    font-size: 3.8em; /* Tamaño grande para el título */
+    font-family: Orb; /* Fuente personalizada */
+    background: linear-gradient(45deg, var(--dorado), var(--naranja-cobre)); /* Degradado dorado-naranja */
+    -webkit-background-clip: text; /* Recorta el degradado al texto (WebKit) */
+    background-clip: text; /* Recorta el degradado al texto */
+    -webkit-text-fill-color: transparent; /* Texto transparente para mostrar el degradado */
+    margin-bottom: 60px; /* Espacio inferior */
 }
 
+/* Contenedor general del acordeón */
 .accordion {
-    width: 100%;
+    width: 100%; /* Ocupa todo el ancho disponible */
 }
 
+/* Cada ítem del acordeón */
 .accordion-item {
-    border: 1px solid rgba(228, 169, 67, 0.3);
-    border-radius: 10px;
-    margin-bottom: 20px;
-    overflow: hidden;
+    border: 1px solid rgba(228, 169, 67, 0.3); /* Borde sutil dorado */
+    border-radius: 10px; /* Bordes redondeados */
+    margin-bottom: 20px; /* Separación entre ítems */
+    overflow: hidden; /* Oculta el contenido que se desborda */
     background-color: rgba(50, 41, 28, 0.5); /* Fondo semitransparente oscuro */
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease; /* Transición suave al cambiar color de fondo */
 }
 
+/* Efecto hover de cada ítem */
 .accordion-item:hover {
-    background-color: rgba(92, 56, 31, 0.3);
+    background-color: rgba(92, 56, 31, 0.3); /* Fondo más claro al pasar el mouse */
 }
 
+/* Encabezado de cada acordeón */
 .accordion-header {
-    width: 100%;
-    padding: 20px 25px;
-    background: none;
-    border: none;
-    text-align: left;
-    font-size: 1.3em;
-    color: white;
-    font-weight: bold;
-    cursor: pointer;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    transition: color 0.3s ease;
+    width: 100%; /* Ocupa todo el ancho */
+    padding: 20px 25px; /* Espaciado interno */
+    background: none; /* Sin fondo */
+    border: none; /* Sin borde */
+    text-align: left; /* Texto alineado a la izquierda */
+    font-size: 1.3em; /* Tamaño de fuente */
+    color: white; /* Color del texto */
+    font-weight: bold; /* Texto en negrita */
+    cursor: pointer; /* Cursor de mano al pasar sobre él */
+    display: flex; /* Flexbox para alinear texto e ícono */
+    justify-content: space-between; /* Separar texto y ícono */
+    align-items: center; /* Centrar verticalmente */
+    transition: color 0.3s ease; /* Transición suave del color */
 }
 
+/* Hover sobre el encabezado */
 .accordion-header:hover {
-    color: var(--dorado);
+    color: var(--dorado); /* Cambia a dorado */
 }
 
+/* Ícono de flecha del acordeón */
 .accordion-icon {
     display: block;
     width: 10px;
     height: 10px;
-    border-right: 2px solid white;
-    border-bottom: 2px solid white;
-    transform: rotate(45deg);
-    transition: transform 0.3s ease, border-color 0.3s ease;
+    border-right: 2px solid white; /* Línea derecha */
+    border-bottom: 2px solid white; /* Línea inferior */
+    transform: rotate(45deg); /* Rota 45° para apuntar hacia abajo */
+    transition: transform 0.3s ease, border-color 0.3s ease; /* Transición de rotación y color */
 }
 
+/* Hover sobre el ícono */
 .accordion-header:hover .accordion-icon {
-    border-color: var(--dorado);
+    border-color: var(--dorado); /* Cambia a dorado */
 }
 
+/* Cuando el acordeón está expandido */
 .accordion-header[aria-expanded="true"] .accordion-icon {
-    transform: rotate(225deg) translateY(-2px); /* Icono al expandir */
+    transform: rotate(225deg) translateY(-2px); /* Rota para apuntar hacia arriba */
 }
 
+/* Contenido del acordeón */
 .accordion-content {
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.4s ease-out;
-    padding: 0 25px;
+    max-height: 0; /* Oculto inicialmente */
+    overflow: hidden; /* Oculta contenido extra */
+    transition: max-height 0.4s ease-out; /* Transición suave al expandir */
+    padding: 0 25px; /* Padding lateral */
 }
 
+/* Párrafo dentro del contenido */
 .accordion-content p {
-    padding: 15px 0 20px 0;
-    color: var(--beige-grisaceo);
-    line-height: 1.7;
-    font-size: 1.1em;
+    padding: 15px 0 20px 0; /* Espaciado superior e inferior */
+    color: var(--beige-grisaceo); /* Color de texto */
+    line-height: 1.7; /* Altura de línea */
+    font-size: 1.1em; /* Tamaño de fuente */
 }
+
+/* =================================================== */
 /* RESPONSIVE FAQ */
+/* =================================================== */
+
+/* Ajustes para pantallas hasta 600px */
 @media (max-width: 600px) {
     .faq-title {
-        font-size: 3em;
-        margin-bottom: 40px;
+        font-size: 3em; /* Título más pequeño */
+        margin-bottom: 40px; /* Reducir margen inferior */
     }
     .faq-section {
-        padding: 60px 20px;
+        padding: 60px 20px; /* Reducir padding superior/inferior y lateral */
     }
     .accordion-header {
-        font-size: 1.1em;
-        padding: 15px 20px;
+        font-size: 1.1em; /* Fuente más pequeña */
+        padding: 15px 20px; /* Padding más compacto */
     }
     .accordion-content p {
-        font-size: 1em;
-        padding: 10px 0 15px 0;
+        font-size: 1em; /* Texto más pequeño */
+        padding: 10px 0 15px 0; /* Ajustar padding vertical */
     }
 }
-/* ===================================================
-   Who We Are  Responsive
-   =================================================== */
 
-/* Ajustes generales para tablets */
+/* =================================================== */
+/* Who We Are  Responsive */
+/* =================================================== */
+
+/* Ajustes generales para tablets hasta 1024px */
 @media (max-width: 1024px) {
     .who-section {
         padding: 100px 30px; /* Reducir padding horizontal */
     }
     
     .who-title {
-        font-size: 3em;
+        font-size: 3em; /* Reducir tamaño del título */
     }
     
     .who-content {
@@ -521,163 +561,184 @@ border-color: var(--blanco-calido);
     }
 
     .who-text {
-        font-size: 1.15em;
+        font-size: 1.15em; /* Reducir tamaño del texto */
     }
 }
-/* Ajustes específicos para móviles */
+
+/* Ajustes específicos para móviles hasta 767px */
 @media (max-width: 767px) {
     .who-section {
-        padding: 80px 20px;
+        padding: 80px 20px; /* Reducir padding general */
     }
     
     .who-title {
         font-size: 2.5em; /* Título más pequeño */
-        margin-bottom: 30px;
+        margin-bottom: 30px; /* Reducir margen inferior */
     }
 
     .who-content {
-        padding: 30px 20px;
+        padding: 30px 20px; /* Reducir padding interno */
     }
 
     .who-text {
-        font-size: 1em;
-        line-height: 1.7;
-        margin-bottom: 20px;
+        font-size: 1em; /* Reducir tamaño del texto */
+        line-height: 1.7; /* Altura de línea */
+        margin-bottom: 20px; /* Reducir margen inferior */
     }
 
     /* Stack de estadísticas */
     .who-stats {
-        flex-direction: column; /* Apilar stats */
-        gap: 20px;
-        margin-top: 30px;
+        flex-direction: column; /* Apilar verticalmente las estadísticas */
+        gap: 20px; /* Separación entre estadísticas */
+        margin-top: 30px; /* Margen superior */
     }
     
     .stat-number {
-        font-size: 2.5em; /* Números más pequeños */
+        font-size: 2.5em; /* Reducir tamaño de los números */
     }
     
     .stat-label {
-        font-size: 1em;
+        font-size: 1em; /* Reducir tamaño de las etiquetas */
     }
 }
-/* ===================================================
-   Careers Promo (Promoción de Carreras) Responsive
-   =================================================== */
-/* Ajustes generales para tablets */
+
+/* =================================================== */
+/* Careers Promo (Promoción de Carreras) Responsive */
+/* =================================================== */
+
+/* Ajustes generales para tablets hasta 1024px */
 @media (max-width: 1024px) {
     .careers-promo {
-        padding: 100px 30px;
+        padding: 100px 30px; /* Reducir padding */
     }
 
     .careers-title {
-        font-size: 3em;
-        margin-bottom: 40px;
+        font-size: 3em; /* Reducir tamaño del título */
+        margin-bottom: 40px; /* Reducir margen inferior */
     }
 
-    /* La cuadrícula permite 1 o 2 columnas si el minmax lo permite */
+    /* Ajustes de la cuadrícula de tarjetas */
     .careers-grid {
-        gap: 25px;
+        gap: 25px; /* Reducir espacio entre tarjetas */
     }
 }
-/* Ajustes específicos para móviles (si es menor a 600px, forzamos 1 columna) */
+
+/* Ajustes específicos para móviles hasta 600px */
 @media (max-width: 600px) {
     .careers-promo {
-        padding: 80px 20px;
+        padding: 80px 20px; /* Reducir padding */
     }
     
     .careers-title {
-        font-size: 2.5em;
+        font-size: 2.5em; /* Reducir tamaño del título */
     }
 
     .careers-grid {
-        grid-template-columns: 1fr; /* Una sola columna para móviles */
-        gap: 20px;
+        grid-template-columns: 1fr; /* Una sola columna */
+        gap: 20px; /* Reducir espacio entre tarjetas */
     }
 
     .career-card {
-        padding: 30px;
+        padding: 30px; /* Reducir padding de la tarjeta */
     }
 
     .career-icon {
-        font-size: 2.5em;
+        font-size: 2.5em; /* Reducir tamaño del icono */
     }
 
     .career-card h3 {
-        font-size: 1.5em;
+        font-size: 1.5em; /* Reducir tamaño del título de la tarjeta */
     }
 }
 /* =========================================================
    SECCIÓN CARD PROMOCIONAL (promo-card-section) Responsive
    ========================================================= */
 
+/* Media query para pantallas con ancho máximo de 900px (móviles y tablets) */
 @media (max-width: 900px) {
+    
+    /* Ajustes para la sección completa de tarjetas promocionales */
     .promo-card-section {
-        padding: 60px 20px; /* Reducir padding en móvil */
-        gap: 60px;
+        padding: 60px 20px; /* Reducir el padding superior/inferior y lateral para pantallas pequeñas */
+        gap: 60px; /* Reducir el espacio entre tarjetas */
     }
     
+    /* Ajustes para los contenedores de las tarjetas */
     .promo-card-container, .promo-card-reverse {
-        flex-direction: column; /* Apilar en vertical */
-        max-width: 500px;
-        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+        flex-direction: column; /* Apilar imagen y contenido en vertical */
+        max-width: 500px; /* Limitar ancho máximo en móviles */
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4); /* Sombra menos intensa y más ajustada */
     }
     
+    /* Ajustes para la imagen y el contenido dentro de la tarjeta */
     .promo-card-image, .promo-card-content {
-        width: 100%;
-        min-height: 250px; /* Reducir altura mínima de la imagen */
+        width: 100%; /* La imagen y el contenido ocupan todo el ancho */
+        min-height: 250px; /* Reducir altura mínima de la imagen en móviles */
     }
     
-    /* Para la card reverse, el orden es importante en móvil */
+    /* Para tarjetas reversas, mantener la imagen arriba en móvil */
     .promo-card-reverse .promo-card-image {
-        order: -1; /* Poner la imagen arriba en la card reverse también */
+        order: -1; /* Mueve la imagen arriba del contenido */
     }
 
+    /* Ajustes de padding del contenido de la tarjeta */
     .promo-card-content {
-        padding: 30px;
+        padding: 30px; /* Reducir padding interno */
     }
     
+    /* Ajustes del título de la tarjeta */
     .promo-card-title {
-        font-size: 1.8em; /* Título más pequeño */
-        margin-bottom: 15px;
+        font-size: 1.8em; /* Reducir tamaño del título */
+        margin-bottom: 15px; /* Reducir margen inferior */
     }
 
+    /* Ajustes del texto descriptivo de la tarjeta */
     .promo-card-text {
-        margin-bottom: 20px;
-        font-size: 0.95em;
+        margin-bottom: 20px; /* Reducir margen inferior */
+        font-size: 0.95em; /* Reducir tamaño de fuente */
     }
 
+    /* Ajustes de la lista de características */
     .promo-features {
-        gap: 10px;
-        margin-bottom: 25px;
+        gap: 10px; /* Reducir espacio entre cada característica */
+        margin-bottom: 25px; /* Reducir margen inferior */
     }
 
+    /* Ajustes del botón CTA */
     .promo-card-cta {
-        font-size: 1em;
-        padding: 12px 30px;
-        max-width: 100%;
+        font-size: 1em; /* Reducir tamaño del texto */
+        padding: 12px 30px; /* Reducir padding interno */
+        max-width: 100%; /* Botón ocupa todo el ancho disponible */
     }
 }
+
 /* =========================================================
    SECCIÓN FAQ - ACORDEÓN (faq-section) Responsive
    ========================================================= */
 
+/* Media query para pantallas con ancho máximo de 767px (móviles) */
 @media (max-width: 767px) {
+    
+    /* Ajustes para la sección completa de FAQ */
     .faq-section {
-        padding: 60px 20px;
+        padding: 60px 20px; /* Reducir padding superior/inferior y lateral */
     }
     
+    /* Ajustes del título de la sección FAQ */
     .faq-title {
-        font-size: 2.5em; /* Título más pequeño */
-        margin-bottom: 30px;
+        font-size: 2.5em; /* Reducir tamaño del título */
+        margin-bottom: 30px; /* Reducir margen inferior */
     }
 
+    /* Ajustes del encabezado de cada acordeón */
     .accordion-header {
-        font-size: 1.1em; /* Texto del encabezado de la pregunta */
-        padding: 15px 20px;
+        font-size: 1.1em; /* Reducir tamaño del texto de la pregunta */
+        padding: 15px 20px; /* Ajustar padding interno */
     }
     
+    /* Ajustes del contenido de cada acordeón */
     .accordion-content p {
-        font-size: 1em; /* Texto de la respuesta */
-        padding: 10px 20px 15px 20px;
+        font-size: 1em; /* Reducir tamaño del texto de la respuesta */
+        padding: 10px 20px 15px 20px; /* Ajustar padding interno (arriba, lateral, abajo) */
     }
 }

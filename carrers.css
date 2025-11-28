@@ -1,135 +1,141 @@
 /* ------------------------------------------------ */
 /* PARTE 1: ESTILOS BASE Y VARIABLES (DE styles.css) */
 /* ------------------------------------------------ */
+
+/* Reset de margenes, padding y box-sizing, y fuente por defecto */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: Camp;
+    margin: 0;               /* Elimina margen por defecto de todos los elementos */
+    padding: 0;              /* Elimina padding por defecto de todos los elementos */
+    box-sizing: border-box;  /* Incluye padding y borde dentro del ancho/alto de elementos */
+    font-family: Camp;       /* Fuente por defecto personalizada */
 }
+
+/* Variables CSS globales */
 :root {
-    --cafe-oscuro: #32291C;
-    --beige-grisaceo: #A09387;
-    --naranja-cobre: #89491E;
-    --negro-verdoso: #1B1C14;
-    --dorado: #E4A943;
-    --blanco-calido: #F1F1EF;
-    --marron-gris: #6F6253;
-    --cafe-quemado: #5C381F;
+    --cafe-oscuro: #32291C;       /* Color de fondo oscuro de café */
+    --beige-grisaceo: #A09387;    /* Color de texto secundario/beige grisáceo */
+    --naranja-cobre: #89491E;     /* Color naranja cobre para detalles */
+    --negro-verdoso: #1B1C14;     /* Color de fondo principal oscuro */
+    --dorado: #E4A943;            /* Color dorado para títulos y resaltes */
+    --blanco-calido: #F1F1EF;     /* Color blanco cálido para texto */
+    --marron-gris: #6F6253;       /* Color marrón grisáceo para bordes y separadores */
+    --cafe-quemado: #5C381F;      /* Color café quemado para sombras/gradientes */
 }
-/* FOTNS */
+
+/* Fuentes personalizadas */
 @font-face {
-    font-family: 'Camp';
-    src: url(Assets/FONTS/CamptonMedium.otf);
+    font-family: 'Camp';                              /* Fuente Camp */
+    src: url(Assets/FONTS/CamptonMedium.otf);        /* Ruta al archivo de fuente */
 }
+
 @font-face {
-    font-family: 'Orb';
-    src: url(Assets/FONTS/Designer.otf);
+    font-family: 'Orb';                               /* Fuente Orb */
+    src: url(Assets/FONTS/Designer.otf);            /* Ruta al archivo de fuente */
 }
-/* FOTNS */
+
+/* Estilo base del body */
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: var(--negro-verdoso);
-    color: var(--blanco-calido);
-    overflow-x: hidden;
-    min-height: 100vh;
-    line-height: 1.6;
-    position: relative;
-    /* Ajuste clave para el modo minimalista */
-    padding-top: 0 !important; 
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Fuente fallback */
+    background: var(--negro-verdoso);   /* Fondo principal */
+    color: var(--blanco-calido);        /* Color de texto principal */
+    overflow-x: hidden;                 /* Evita scroll horizontal */
+    min-height: 100vh;                  /* Altura mínima igual a la ventana */
+    line-height: 1.6;                   /* Espaciado entre líneas */
+    position: relative;                 /* Posicionamiento relativo */
+    padding-top: 0 !important;          /* Ajuste clave para modo minimalista */
 }
 
 
 /* ------------------------------------------------ */
-/* PARTE 2: ESTILOS DE LA PÁGINA DE CARRERA (CareerDetail.css) */
+/* PARTE 2: ESTILOS DE LA PÁGINA DE CARRERA (careers.css) */
 /* ------------------------------------------------ */
 
 /* SECCIÓN PRINCIPAL: TÍTULO Y BOTÓN DE REGRESO */
 
 .career-detail-hero {
-    padding: 80px 5% 40px; /* Reduje un poco el padding superior al eliminar el header */
-    background-color: var(--negro-verdoso);
+    padding: 80px 5% 40px;              /* Espaciado superior, lateral y inferior */
+    background-color: var(--negro-verdoso); /* Fondo de la sección */
 }
 
 .career-header-content {
-    max-width: 1200px;
-    margin: 0 auto;
+    max-width: 1200px;                  /* Ancho máximo centrado */
+    margin: 0 auto;                     /* Centrar horizontalmente */
 }
 
 .career-main-title {
     font-family: 'Orb'; 
-    font-size: clamp(2rem, 5vw, 4rem);
+    font-size: clamp(2rem, 5vw, 4rem);  /* Tamaño adaptable entre 2rem y 4rem */
     color: var(--dorado); 
     margin-bottom: 20px;
-    text-shadow: 0 0 10px rgba(228, 169, 67, 0.4);
+    text-shadow: 0 0 10px rgba(228, 169, 67, 0.4); /* Sombra dorada suave */
 }
 
 .back-button {
-    display: inline-block;
-    color: var(--beige-grisaceo);
-    text-decoration: none;
+    display: inline-block;             /* Botón en línea con padding */
+    color: var(--beige-grisaceo);      /* Color de texto */
+    text-decoration: none;             /* Sin subrayado */
     font-size: 1rem;
-    padding: 10px 15px;
-    border: 1px solid var(--beige-grisaceo);
-    border-radius: 4px;
-    transition: background-color 0.3s, color 0.3s;
+    padding: 10px 15px;                /* Espaciado interno */
+    border: 1px solid var(--beige-grisaceo); /* Borde */
+    border-radius: 4px;                /* Esquinas redondeadas */
+    transition: background-color 0.3s, color 0.3s; /* Suaviza hover */
 }
 
 .back-button:hover {
-    background-color: var(--marron-gris);
-    color: var(--blanco-calido);
+    background-color: var(--marron-gris); /* Fondo al pasar mouse */
+    color: var(--blanco-calido);          /* Texto al pasar mouse */
 }
 
 /* CARD DE DETALLE DE CARRERA (Escalable y Grande) */
 
 .career-container-section {
-    padding: 40px 5%;
-    background-color: var(--cafe-oscuro);
+    padding: 40px 5%;                   /* Espaciado interno de sección */
+    background-color: var(--cafe-oscuro); /* Fondo oscuro */
 }
 
 .career-cards-wrapper {
-    max-width: 1200px;
+    max-width: 1200px;                  /* Contenedor centrado */
     margin: 0 auto;
 }
 
 .main-career-card {
-    display: flex;
-    flex-direction: row; 
-    background: var(--cafe-oscuro);
-    border: 1px solid var(--marron-gris);
-    border-radius: 12px;
-    overflow: hidden;
-    margin-bottom: 50px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+    display: flex;                       /* Layout flexible */
+    flex-direction: row;                 /* Dirección horizontal */
+    background: var(--cafe-oscuro);     /* Fondo de card */
+    border: 1px solid var(--marron-gris); /* Borde */
+    border-radius: 12px;                 /* Esquinas redondeadas */
+    overflow: hidden;                    /* Oculta desbordes */
+    margin-bottom: 50px;                 /* Separación inferior */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5); /* Sombra suave */
 }
 
 .career-image-wrapper {
-    flex: 1;
-    min-height: 400px;
+    flex: 1;                             /* Ocupa espacio proporcional */
+    min-height: 400px;                   /* Altura mínima de imagen */
 }
 
 .career-card-image {
-    width: 100%;
+    width: 100%;                         /* Imagen ocupa todo el contenedor */
     height: 100%;
-    object-fit: cover;
+    object-fit: cover;                   /* Ajusta imagen sin deformar */
 }
 
 .career-content {
-    flex: 2;
-    padding: 40px;
+    flex: 2;                             /* Contenido ocupa más espacio */
+    padding: 40px;                        /* Espaciado interno */
 }
 
 .career-category {
-    color: var(--naranja-cobre);
+    color: var(--naranja-cobre);         /* Color de categoría */
     font-size: 0.9rem;
     margin-bottom: 10px;
     letter-spacing: 2px;
-    text-transform: uppercase;
+    text-transform: uppercase;           /* Mayúsculas */
     font-weight: bold;
 }
 
 .career-name {
-    font-size: clamp(1.8rem, 4vw, 3rem);
+    font-size: clamp(1.8rem, 4vw, 3rem); /* Tamaño adaptativo */
     color: var(--blanco-calido);
     margin-bottom: 25px;
     font-family: 'Camp';
@@ -144,7 +150,7 @@ body {
 .key-skills-list {
     margin-top: 30px;
     padding-top: 20px;
-    border-top: 1px solid var(--marron-gris);
+    border-top: 1px solid var(--marron-gris); /* Línea superior */
 }
 
 .key-skills-list h3 {
@@ -154,11 +160,11 @@ body {
 }
 
 .key-skills-list ul {
-    list-style-type: none;
+    list-style-type: none;               /* Sin viñetas */
     padding: 0;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px 20px;
+    display: flex;                        /* Layout horizontal */
+    flex-wrap: wrap;                      /* Ajuste a varias filas si es necesario */
+    gap: 10px 20px;                       /* Separación entre items */
 }
 
 .key-skills-list li {

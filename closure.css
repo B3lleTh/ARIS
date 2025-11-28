@@ -2,222 +2,237 @@
 /* 4. SECCIÓN DE CIERRE (TEAM & CTA) */
 /* ======================================= */
 
+/* Contenedor principal de la sección */
 .closure-section {
-    padding: 100px 20px;
+    padding: 100px 20px; /* Espaciado interno */
     background-color: var(--color-background-dark); /* Fondo oscuro general */
-    color: var(--color-text-light);
+    color: var(--color-text-light); /* Color de texto claro */
 }
 
+/* Contenedor interno flexible */
 .closure-container {
-    display: flex;
-    max-width: 1300px;
-    margin: 0 auto;
-    gap: 50px;
+    display: flex;           /* Flexbox para alinear secciones */
+    max-width: 1300px;       /* Ancho máximo */
+    margin: 0 auto;          /* Centrado horizontal */
+    gap: 50px;               /* Espacio entre elementos flex */
 }
 
 /* --- ESTILOS DEL LADO IZQUIERDO: TEAM --- */
 .team-section {
-    flex: 1; /* Ocupa 50% del espacio */
-    padding-right: 20px;
+    flex: 1;            /* Ocupa 50% del espacio del contenedor */
+    padding-right: 20px; /* Espacio interno a la derecha */
 }
 
+/* Título principal del equipo */
 .team-title {
-    font-size: 2.5rem;
-    color: var(--color-text-light);
-    margin-bottom: 10px;
+    font-size: 2.5rem;               /* Tamaño grande */
+    color: var(--color-text-light);  /* Color de texto */
+    margin-bottom: 10px;             /* Espaciado inferior */
 }
 
+/* Subtítulo del equipo */
 .team-subtitle {
-    color: var(--color-gray);
-    font-size: 1.1rem;
-    margin-bottom: 40px;
+    color: var(--color-gray);       /* Color gris */
+    font-size: 1.1rem;              /* Tamaño de fuente moderado */
+    margin-bottom: 40px;            /* Espacio inferior */
 }
 
-/* El grid ahora contendrá 4 tarjetas de miembro + 1 tarjeta de reclutamiento (5 elementos) */
+/* Grid para miembros y anuncio */
 .team-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr); /* 2x2 para las 4 primeras, y el 5to abajo */
-    gap: 25px;
+    display: grid;                           /* Se convierte en grid */
+    grid-template-columns: repeat(2, 1fr);   /* 2 columnas en 2x2 */
+    gap: 25px;                               /* Espaciado entre elementos */
 }
 
-/* Estilos de la Mini Card del Miembro */
+/* Estilos de la tarjeta de cada miembro */
 .team-member-card {
-    background-color: #262626;
-    border-radius: var(--card-border-radius);
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    transition: all 0.3s ease;
-    cursor: default;
-    border: 1px solid transparent;
+    background-color: #262626;        /* Fondo oscuro */
+    border-radius: var(--card-border-radius); /* Bordes redondeados */
+    padding: 20px;                     /* Espaciado interno */
+    display: flex;                     /* Flex vertical */
+    flex-direction: column;            /* Alineación vertical */
+    align-items: center;               /* Centrado horizontal */
+    text-align: center;                /* Texto centrado */
+    transition: all 0.3s ease;        /* Animación suave */
+    cursor: default;                   /* Cursor por defecto */
+    border: 1px solid transparent;    /* Borde inicial invisible */
 }
 
+/* Hover en tarjeta del miembro */
 .team-member-card:hover {
-    background-color: #333333;
-    transform: translateY(-5px) scale(1.02);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
-    border-color: var(--color-accent);
+    background-color: #333333;        /* Fondo más claro */
+    transform: translateY(-5px) scale(1.02); /* Leve elevación y escalado */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4); /* Sombra más intensa */
+    border-color: var(--color-accent); /* Borde visible en hover */
 }
 
+/* Contenedor de la imagen del miembro */
 .member-image-wrapper {
-    width: 100px;
-    height: 100px;
-    border-radius: 50%; /* Forma circular */
-    overflow: hidden;
-    margin-bottom: 15px;
+    width: 100px;                     /* Ancho fijo */
+    height: 100px;                    /* Alto fijo */
+    border-radius: 50%;               /* Forma circular */
+    overflow: hidden;                 /* Oculta contenido sobrante */
+    margin-bottom: 15px;              /* Espaciado inferior */
     box-shadow: 0 0 0 4px var(--color-primary); /* Borde de énfasis */
-    transition: transform 0.3s ease;
+    transition: transform 0.3s ease;  /* Animación suave */
 }
 
+/* Hover en la imagen del miembro */
 .team-member-card:hover .member-image-wrapper {
-    transform: scale(1.05) rotate(2deg); /* Efecto dinámico en hover */
-    box-shadow: 0 0 0 4px var(--color-accent);
+    transform: scale(1.05) rotate(2deg); /* Escalado y rotación ligera */
+    box-shadow: 0 0 0 4px var(--color-accent); /* Cambio de borde */
 }
 
+/* Foto del miembro */
 .member-photo {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+    width: 100%;             /* Ocupa todo el contenedor */
+    height: 100%;            /* Ocupa todo el contenedor */
+    object-fit: cover;       /* Ajuste sin distorsión */
 }
 
+/* Nombre del miembro */
 .member-name {
-    font-size: 1.3rem;
-    font-weight: 600;
-    margin: 0 0 5px 0;
-    color: var(--color-text-light);
+    font-size: 1.3rem;                 /* Tamaño de fuente */
+    font-weight: 600;                   /* Negrita ligera */
+    margin: 0 0 5px 0;                  /* Separación inferior */
+    color: var(--color-text-light);     /* Color de texto */
 }
 
+/* Rol del miembro */
 .member-role {
-    font-size: 0.9rem;
-    color: var(--color-accent);
-    text-transform: uppercase;
+    font-size: 0.9rem;                /* Tamaño más pequeño */
+    color: var(--color-accent);       /* Color de acento */
+    text-transform: uppercase;        /* Mayúsculas */
 }
 
 /* === NUEVO: MINI ANUNCIO INTEGRADO EN EL GRID DEL EQUIPO === */
 .team-recruitment-card {
-    grid-column: span 2; 
-    grid-row: 3 / span 1; /* Posicionado en la 3era fila (el 5to elemento en 2x2) */
-    
-    background-color: #ffbb00;
-    border-radius: var(--card-border-radius);
-    overflow: hidden;
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    grid-column: span 2;                  /* Ocupa 2 columnas */
+    grid-row: 3 / span 1;                 /* Posicionado en la 3era fila */
+    background-color: #ffbb00;            /* Fondo llamativo */
+    border-radius: var(--card-border-radius); /* Bordes redondeados */
+    overflow: hidden;                      /* Ocultar overflow */
+    position: relative;                    /* Posicionamiento relativo */
+    display: flex;                         /* Flex para centrar */
+    align-items: center;                    /* Centrado vertical */
+    justify-content: center;               /* Centrado horizontal */
     height: 100%; 
-    min-height: 250px; 
-    text-align: center;
-    
-    /* Efecto Glow Inicial */
-    box-shadow: 0 0 10px rgba(255, 208, 0, 0.4); 
-    border: 1px solid transparent; 
-    transition: all 0.4s ease-in-out;
+    min-height: 250px;                     /* Altura mínima */
+    text-align: center;                    /* Texto centrado */
+    box-shadow: 0 0 10px rgba(255, 208, 0, 0.4); /* Glow inicial */
+    border: 1px solid transparent;         /* Borde inicial invisible */
+    transition: all 0.4s ease-in-out;      /* Animación suave */
 }
 
+/* Hover en la tarjeta de reclutamiento */
 .team-recruitment-card:hover {
     transform: translateY(-5px); 
-    /* Glow más intenso y de color accent en hover */
     box-shadow: 
         0 0 20px var(--color-accent), 
-        0 10px 30px rgba(0, 0, 0, 0.6); 
-    border-color: var(--color-accent);
+        0 10px 30px rgba(0, 0, 0, 0.6); /* Glow más intenso */
+    border-color: var(--color-accent);    /* Borde visible */
 }
 
-/* Estilos de la Imagen de Fondo */
+/* Contenedor de la imagen de fondo */
 .recruitment-bg-wrapper {
-    position: absolute;
+    position: absolute; 
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    z-index: 1;
-    overflow: hidden;
+    z-index: 1;          /* Detrás del contenido */
+    overflow: hidden;     /* Ocultar overflow */
 }
 
+/* Imagen de fondo del anuncio */
 .recruitment-bg-image {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    filter: brightness(0.8) grayscale(10%); /* Oscurece y da un tono futurista */
-    transition: transform 0.4s ease;
+    filter: brightness(0.8) grayscale(10%); /* Oscurece ligeramente */
+    transition: transform 0.4s ease;       /* Animación de zoom */
 }
 
+/* Hover sobre la imagen de fondo */
 .team-recruitment-card:hover .recruitment-bg-image {
-    transform: scale(1.05);
+    transform: scale(1.05); /* Leve zoom */
 }
 
 /* Overlay para el Contenido y la Interacción */
 .recruitment-overlay {
-    position: relative;
-    z-index: 2; 
-    padding: 20px;
+    position: relative; /* Posición relativa dentro del contenedor */
+    z-index: 2;         /* Superposición sobre otros elementos */
+    padding: 20px;      /* Espaciado interno */
 }
 
+/* Título CTA de reclutamiento */
 .recruitment-cta-title {
-    font-size: 1.6rem;
-    color: var(--color-warning); 
-    margin-bottom: 5px;
+    font-size: 1.6rem;          /* Tamaño del texto */
+    color: var(--color-warning); /* Color de alerta/llamativo */
+    margin-bottom: 5px;         /* Separación inferior */
 }
 
+/* Texto descriptivo del CTA de reclutamiento */
 .recruitment-cta-text {
-    font-size: 0.95rem;
-    color: rgba(255, 255, 255, 0.9);
-    margin-bottom: 20px;
+    font-size: 0.95rem;                           /* Tamaño de fuente */
+    color: rgba(255, 255, 255, 0.9);             /* Color semitransparente */
+    margin-bottom: 20px;                          /* Separación inferior */
 }
 
+/* Botón de CTA de reclutamiento */
 .recruitment-cta-button {
-    background-color: var(--color-accent);
-    color: var(--color-text-light);
-    padding: 10px 20px;
-    border-radius: 50px;
-    text-decoration: none;
-    font-weight: 700;
-    transition: background-color 0.3s, transform 0.3s;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    background-color: var(--color-accent);  /* Color de fondo principal */
+    color: var(--color-text-light);         /* Color del texto */
+    padding: 10px 20px;                     /* Espaciado interno */
+    border-radius: 50px;                    /* Bordes redondeados */
+    text-decoration: none;                   /* Sin subrayado */
+    font-weight: 700;                        /* Texto en negrita */
+    transition: background-color 0.3s, transform 0.3s; /* Animación de hover */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);       /* Sombra ligera */
 }
 
+/* Hover del botón CTA */
 .recruitment-cta-button:hover {
-    background-color: #ff85c2;
-    transform: scale(1.05);
+    background-color: #ff85c2;  /* Cambio de color al pasar el mouse */
+    transform: scale(1.05);     /* Leve aumento de tamaño */
 }
-/* ======================================================= */
 
+/* ======================================================= */
 
 /* --- ESTILOS DEL LADO DERECHO: CTA VISUAL --- */
 .visual-cta {
-    flex: 1; /* Ocupa 50% del espacio */
-    position: relative;
-    border-radius:25px;
-    overflow: hidden;
-    transition: all ease-in-out .3s;
+    flex: 1;                   /* Ocupa el 50% del contenedor flex */
+    position: relative;         
+    border-radius: 25px;       /* Bordes redondeados */
+    overflow: hidden;           /* Ocultar overflow de las imágenes */
+    transition: all ease-in-out .3s; /* Transición suave para hover */
 }
 
+/* Contenedor de la grilla de imágenes */
 .image-grid-reference {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(3, 1fr);
-    gap: 10px;
-    height: 100%;
-    position: relative;
+    display: grid;                                /* Se convierte en grid */
+    grid-template-columns: repeat(3, 1fr);       /* 3 columnas iguales */
+    grid-template-rows: repeat(3, 1fr);          /* 3 filas iguales */
+    gap: 10px;                                   /* Espacio entre elementos */
+    height: 100%;                                /* Ocupa todo el contenedor */
+    position: relative;                          /* Para posicionamiento de hijos */
 }
 
+/* Cada imagen dentro de la grilla */
 .grid-item {
-    overflow: hidden;
-    border-radius: 10px;
-    opacity: 0.6; /* Oscurecer las imágenes */
-    transition: opacity 0.5s ease;
+    overflow: hidden;          /* Ocultar contenido extra */
+    border-radius: 10px;       /* Bordes redondeados */
+    opacity: 0.6;              /* Oscurecer imágenes por defecto */
+    transition: opacity 0.5s ease; /* Transición suave */
 }
 
 .grid-img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+    width: 100%;             /* Ocupa todo el ancho del contenedor */
+    height: 100%;            /* Ocupa todo el alto */
+    object-fit: cover;       /* Ajustar imagen sin distorsionar */
 }
 
-/* Posicionamiento específico (simulando tu referencia) */
+/* Posicionamiento específico de cada grid-item */
 .image-grid-reference > .grid-item:nth-child(1) {
     grid-column: 1 / span 1;
     grid-row: 1 / span 2;
@@ -239,16 +254,15 @@
     grid-row: 2 / span 2;
 }
 
-
-/* Superposición de CTA */
+/* Superposición de CTA sobre la grilla de imágenes */
 .cta-overlay {
     position: absolute;
     top: 0;
     left: 0;
-    width: 100%;
+    width: 100%; 
     height: 100%;
-    background: rgba(0, 0, 0, 0.1); /* Fondo oscuro sobre las imágenes */
-    display: flex;
+    background: rgba(0, 0, 0, 0.1); /* Fondo oscuro semitransparente */
+    display: flex;                  /* Flex para centrar contenido */
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -256,7 +270,7 @@
     text-align: center;
 }
 
-/* Animación del Texto (De menos a más) */
+/* Animación de entrada para el texto del CTA */
 @keyframes fadeInScale {
     from {
         opacity: 0;
@@ -268,15 +282,16 @@
     }
 }
 
+/* Texto principal del CTA */
 .cta-text {
     font-size: 3rem;
     font-weight: 800;
     color: var(--color-text-light);
     margin-bottom: 30px;
-    /* Aplicar la animación */
-    animation: fadeInScale 1.2s ease-out forwards;
+    animation: fadeInScale 1.2s ease-out forwards; /* Animación al aparecer */
 }
 
+/* Botón CTA principal */
 .cta-button {
     background-color: #be8800;
     color: #262626;
@@ -289,33 +304,35 @@
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
 }
 
+/* Hover del botón CTA */
 .cta-button:hover {
-    background-color:#f09c0b !important;
-    transform: scale(1.05);
-    color: #000000;
+    background-color: #f09c0b !important; /* Cambio de color */
+    transform: scale(1.05);               /* Leve escalado */
+    color: #000000;                        /* Texto más oscuro */
 }
 
 /* ======================================= */
 /* RESPONSIVE DESIGN */
 /* ======================================= */
 
+/* Tablets (hasta 992px) */
 @media (max-width: 992px) {
     .closure-container {
         flex-direction: column; /* Apilar secciones */
-        gap: 80px;
+        gap: 80px;              /* Separación vertical */
     }
     
     .team-section,
     .visual-cta {
-        flex: auto;
+        flex: auto; /* Ocupan espacio automáticamente */
     }
 
     .team-grid {
-        grid-template-columns: repeat(4, 1fr); /* 4 columnas en tabletas */
+        grid-template-columns: repeat(4, 1fr); /* Mantener 4 columnas */
     }
 
     .team-member-card {
-        padding: 15px 5px;
+        padding: 15px 5px; /* Reducir padding */
     }
     
     .member-image-wrapper {
@@ -324,7 +341,7 @@
     }
     
     .team-recruitment-card {
-        grid-column: span 1; /* Ocupa 1/4 en tabletas */
+        grid-column: span 1; /* 1 columna en tabletas */
         min-height: 200px;
     }
 
@@ -333,9 +350,10 @@
     }
 }
 
+/* Móviles (hasta 576px) */
 @media (max-width: 576px) {
     .team-grid {
-        grid-template-columns: repeat(2, 1fr); /* 2 columnas en móvil */
+        grid-template-columns: repeat(2, 1fr); /* 2 columnas */
     }
     .team-title {
         font-size: 2rem;
@@ -345,7 +363,7 @@
         height: 70px;
     }
     .team-recruitment-card {
-        grid-column: span 2; /* Ocupa el ancho completo del grid 2x2 en móvil */
+        grid-column: span 2; /* Ocupa todo el ancho del grid */
     }
     .cta-text {
         font-size: 1.8rem;
@@ -353,47 +371,43 @@
 }
 
 /* ======================================= */
-/* 5. MINI BANNER DE RECLUTAMIENTO COMPACTO (El que está después de la sección 4) */
+/* 5. MINI BANNER DE RECLUTAMIENTO COMPACTO */
 /* ======================================= */
 
 .mini-recruitment-banner {
     padding: 60px 20px;
-    background-color: var(--color-background-dark);
+    background-color: var(--color-background-dark); /* Fondo oscuro */
     position: relative; 
     z-index: 1;
 }
 
+/* Contenedor interno del mini banner */
 .mini-banner-content {
     max-width: 1000px;
     margin: 0 auto;
     padding: 30px 40px;
-    
-    background: rgba(0, 0, 0, 0.4); 
+    background: rgba(0, 0, 0, 0.4); /* Fondo semitransparente */
     border-radius: 20px;
-    
     display: flex;
     justify-content: space-between;
     align-items: center;
     position: relative; 
     z-index: 5;
-    
-    /* Efectos de brillo inicial */
     box-shadow: 
         0 0 15px rgba(255, 191, 0, 0.3), 
-        0 8px 25px rgba(0, 0, 0, 0.5); 
-    
+        0 8px 25px rgba(0, 0, 0, 0.5);
     transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
+/* Hover del mini banner */
 .mini-banner-content:hover {
-    transform: translateY(-5px); 
-    /* Efecto de brillo más intenso */
+    transform: translateY(-5px); /* Levantar */
     box-shadow: 
         0 0 30px rgba(255, 105, 180, 0.8), 
-        0 15px 40px rgba(0, 0, 0, 0.7);
+        0 15px 40px rgba(0, 0, 0, 0.7); /* Brillo más intenso */
 }
 
-/* --- ESTILOS DE IMAGEN DE FONDO --- */
+/* Imagen de fondo */
 .mini-banner-bg {
     position: absolute;
     top: 0;
@@ -414,11 +428,10 @@
 }
 
 .mini-banner-content:hover .banner-bg-image {
-    transform: scale(1.1); 
+    transform: scale(1.1); /* Zoom de fondo al hover */
 }
-/* ---------------------------------- */
 
-
+/* Título del mini banner */
 .mini-banner-title {
     font-size: 1.8rem;
     font-weight: 600;
@@ -426,12 +439,14 @@
     margin: 0;
 }
 
+/* Destacar parte del título */
 .mini-banner-title .highlight {
     color: var(--color-primary); 
     padding-bottom: 2px;
     border-bottom: 2px solid var(--color-accent);
 }
 
+/* Botón dentro del mini banner */
 .mini-banner-button {
     background-color: var(--color-accent);
     color: var(--color-text-light);
@@ -445,135 +460,134 @@
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
 }
 
+/* Hover del botón mini banner */
 .mini-banner-button:hover {
     background-color: #ff85c2;
     transform: scale(1.05);
 }
 
+
 /* --- RESPONSIVE DEL BANNER (Manteniendo la consistencia) --- */
 
+/* Media query para pantallas hasta 768px (tablets y móviles grandes) */
 @media (max-width: 768px) {
     .mini-banner-content {
-        flex-direction: column;
-        text-align: center;
-        padding: 30px 20px;
+        flex-direction: column; /* Apilar el contenido verticalmente */
+        text-align: center;      /* Centrar texto e imágenes */
+        padding: 30px 20px;      /* Espaciado interno reducido */
     }
 
     .mini-banner-title {
-        font-size: 1.5rem;
-        margin-bottom: 20px;
+        font-size: 1.5rem;       /* Tamaño de título más pequeño */
+        margin-bottom: 20px;     /* Separación inferior */
     }
 }
 
+/* ========================== HOVERS DE ARE U READY CARD ==================== */
 
-
-/* ========================== HOVERS DE  ARE U READY CARD ==================== */
-
+/* Efecto hover general para el contenedor de CTA visual */
 .visual-cta:hover {
-    /* Agrega un brillo general al contenedor */
-    box-shadow: 0 0 30px #ffbb00;; /* Ajusta el color a tu var(--color-primary) */
-    transform: translateY(-2px); /* Un ligero lift */
+    box-shadow: 0 0 30px #ffbb00; /* Brillo general del contenedor */
+    transform: translateY(-2px);   /* Ligero "lift" al pasar el mouse */
 }
 
-/* Efecto de Zoom y Oscurecimiento */
+/* Efecto hover en cada elemento de la grilla */
 .grid-item:hover {
-    opacity: 1; /* Hace que la imagen hovered sea más visible */
-    z-index: 10; /* Para que se superponga ligeramente */
+    opacity: 1;  /* Hacer que el elemento hovered sea completamente visible */
+    z-index: 10; /* Superponerlo sobre los demás elementos */
 }
 
+/* Efecto de zoom y brillo en la imagen dentro del grid-item al hover */
 .grid-item:hover .grid-img {
-    transform: scale(1.1); /* Zoom en la imagen */
-    filter: brightness(1.1); /* Ligero aumento de brillo en la imagen */
-    transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94); /* Curva suave y rápida */
+    transform: scale(1.1); /* Zoom ligero */
+    filter: brightness(1.1); /* Aumenta brillo */
+    transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94); /* Animación suave */
 }
 
-/* Efecto de las NO-Imágenes-Hovered (opcional, para énfasis) */
+/* Oscurecer las imágenes no seleccionadas al hacer hover sobre otra */
 .image-grid-reference:hover .grid-item:not(:hover) {
-    opacity: 0.3; /* Oscurece las imágenes no seleccionadas */
+    opacity: 0.3; /* Reduce visibilidad de no-hover */
 }
 
-/* Hover más avanzado para el botón de Explorar Ahora */
+/* Hover avanzado para el botón de "Explorar Ahora" */
 .cta-button:hover {
-    background-color: var(--color-accent); /* Color que ya tienes */
-    transform: scale(1.1) translateY(-2px); /* Más grande y se levanta */
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5), 0 0 15px var(--color-accent); /* Sombra intensa con glow */
+    background-color: var(--color-accent);       /* Cambia color de fondo */
+    transform: scale(1.1) translateY(-2px);      /* Escala y levanta el botón */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5), 0 0 15px var(--color-accent); /* Sombra y glow */
 }
 
-/* Opcional: El texto CTA reacciona al pasar el ratón por el botón */
+/* Efecto de texto CTA cuando se hace hover en el botón */
 .cta-button:hover ~ .cta-text { 
-    /* El selector "~" requiere que .cta-text esté después de .cta-button en el HTML, 
-    si no es el caso, omite este estilo o aplícalo al :hover del contenedor `.cta-overlay` */
-    text-shadow: 0 0 1px rgba(255, 255, 255, 0.8);
-    transform: scale(1.02); /* Se agranda un poco */
-    transition: all 0.3s ease;
+    text-shadow: 0 0 1px rgba(255, 255, 255, 0.8); /* Sombra ligera */
+    transform: scale(1.02);                          /* Agrandar un poco */
+    transition: all 0.3s ease;                       /* Animación suave */
 }
 
-/* O si prefieres que reaccione al hacer hover en el contenedor */
+/* Alternativa: efecto de texto CTA al hoverar el contenedor */
 .cta-overlay:hover .cta-text {
-     text-shadow: 0 0 5px rgba(255, 255, 255, 0.8);
-     transform: scale(1.02);
-     transition: all 0.3s ease;
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.8); /* Sombra más intensa */
+    transform: scale(1.02);                         /* Agrandar un poco */
+    transition: all 0.3s ease;                      /* Animación suave */
 }
 
 /* ===================================================
    4. SECCIÓN DE CIERRE (TEAM & CTA) - Responsive
    =================================================== */
 
-/* Ajustes para tablets (Hasta 992px) */
+/* Ajustes para tablets (hasta 992px) */
 @media (max-width: 992px) {
     .closure-section {
-        padding: 80px 20px;
+        padding: 80px 20px; /* Reducir padding lateral */
     }
     
     .closure-container {
-        flex-direction: column; /* Apilar secciones */
-        gap: 60px; /* Reducir el espacio apilado */
+        flex-direction: column; /* Apilar contenido vertical */
+        gap: 60px;              /* Separación entre secciones */
     }
     
     .team-section {
         padding-right: 0;
-        text-align: center; /* Centrar el texto en tablets */
+        text-align: center;     /* Centrar texto */
     }
     
     .team-grid {
-        /* Mantenemos 4 columnas para que quepan los 4 miembros y el anuncio en filas diferentes */
-        grid-template-columns: repeat(4, 1fr); 
-        gap: 20px;
-        max-width: 700px; /* Limitar el ancho del grid para que no se estire demasiado */
-        margin: 0 auto;
+        grid-template-columns: repeat(4, 1fr); /* Mantener 4 columnas */
+        gap: 20px; 
+        max-width: 700px; /* Limitar ancho del grid */
+        margin: 0 auto;   /* Centrar grid */
     }
 
     .team-member-card {
-        padding: 15px 5px;
+        padding: 15px 5px; /* Reducir padding */
     }
     
     .member-image-wrapper {
-        width: 70px; /* Tamaño ligeramente más pequeño */
+        width: 70px;  /* Tamaño imagen más pequeño */
         height: 70px;
     }
     
     .member-name {
-        font-size: 1.1rem;
+        font-size: 1.1rem; 
     }
     
     .member-role {
-        font-size: 0.8rem;
+        font-size: 0.8rem; 
     }
 
-    /* Anuncio de reclutamiento: ocupa el ancho completo del grid (4 columnas) */
+    /* Anuncio de reclutamiento: ocupar todo el ancho del grid */
     .team-recruitment-card {
         grid-column: 1 / span 4; 
-        grid-row: auto; /* Posición automática al final */
+        grid-row: auto; 
         min-height: 220px;
     }
     
     .recruitment-cta-title {
-        font-size: 1.4rem;
+        font-size: 1.4rem; 
     }
 
-    /* CTA Visual */
+    /* CTA visual */
     .visual-cta {
-        height: 400px; /* Altura fija para la grilla de imágenes */
+        height: 400px; /* Altura fija para grilla */
     }
     
     .cta-text {
@@ -581,14 +595,14 @@
     }
 }
 
-/* Ajustes para móviles (Hasta 576px) */
+/* Ajustes para móviles (hasta 576px) */
 @media (max-width: 576px) {
     .closure-section {
-        padding: 60px 15px;
+        padding: 60px 15px; /* Reducir padding general */
     }
     
     .team-section {
-        padding: 0;
+        padding: 0; /* Eliminar padding extra */
     }
 
     .team-grid {
@@ -606,11 +620,11 @@
     }
 
     .member-image-wrapper {
-        width: 60px; /* Tamaño más pequeño */
+        width: 60px;  /* Imagen más pequeña */
         height: 60px;
     }
     
-    /* Anuncio de reclutamiento: ocupa el ancho completo del grid 2x2 */
+    /* Anuncio de reclutamiento: ocupar todo el ancho del grid */
     .team-recruitment-card {
         grid-column: 1 / span 2; 
         min-height: 180px;
@@ -619,6 +633,7 @@
     .recruitment-cta-title {
         font-size: 1.3rem;
     }
+    
     .recruitment-cta-text {
         font-size: 0.85rem;
     }
@@ -639,20 +654,19 @@
     }
 }
 
-
 /* =======================================================
    5. MINI BANNER DE RECLUTAMIENTO - Responsive
    ======================================================= */
 
-/* Ajustes para tablets y móviles (Hasta 768px) */
+/* Tablets y móviles (hasta 768px) */
 @media (max-width: 768px) {
     .mini-recruitment-banner {
-        padding: 40px 15px;
+        padding: 40px 15px; /* Reducir padding */
     }
     
     .mini-banner-content {
-        flex-direction: column; /* Apilar contenido */
-        text-align: center;
+        flex-direction: column; /* Apilar contenido vertical */
+        text-align: center; 
         padding: 30px 20px;
     }
     
@@ -664,19 +678,18 @@
     .mini-banner-button {
         padding: 10px 20px;
         font-size: 0.95rem;
-        /* Permitir que el botón ocupe el ancho completo si es necesario, pero centrado */
-        width: 100%; 
-        max-width: 250px; 
+        width: 100%;        /* Botón ocupa todo el ancho posible */
+        max-width: 250px;   /* Limite máximo ancho */
     }
 }
 
-/* Ajustes más pequeños para móviles */
+/* Ajustes más pequeños para móviles (hasta 480px) */
 @media (max-width: 480px) {
     .mini-recruitment-banner {
-        padding: 30px 10px;
+        padding: 30px 10px; /* Reducir padding aún más */
     }
     
     .mini-banner-title {
-        font-size: 1.3rem;
+        font-size: 1.3rem;  /* Reducir tamaño de título */
     }
 }

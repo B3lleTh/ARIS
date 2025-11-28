@@ -1,7 +1,10 @@
 // ============================
 // CARGAR VARIABLES DE ENTORNO
 // ============================
+// Carga las variables definidas en el archivo .env al process.env
 require("dotenv").config();
+
+// Verificación rápida en consola de las variables cargadas
 console.log(
   "ENV CARGADO:",
   process.env.DB_HOST,
@@ -13,14 +16,17 @@ console.log(
 // ============================
 // IMPORTS
 // ============================
-const express = require("express");
-const cors = require("cors");
-const axios = require("axios");
+const express = require("express"); // Framework web para Node.js
+const cors = require("cors");       // Middleware para permitir CORS
+const axios = require("axios");     // Cliente HTTP para llamadas externas
 
-// 1. IMPORTACIÓN AJUSTADA: Importamos la conexión (db) y la función de conteo
+// 1. IMPORTACIÓN AJUSTADA: Importamos la conexión a DB y función utilitaria
 const { db, getActiveStudentsCount } = require("./db");
 
+// Crear instancia de Express
 const app = express();
+
+// Habilitar CORS y JSON parsing
 app.use(cors());
 app.use(express.json());
 
@@ -28,7 +34,7 @@ app.use(express.json());
 // RUTA PRINCIPAL (PARA RENDER)
 // ==========================
 app.get("/", (req, res) => {
-  res.send("Servidor backend funcionando correctamente.");
+  res.send("Servidor backend funcionando correctamente."); // Simple prueba de salud
 });
 
 // ==========================
@@ -36,9 +42,11 @@ app.get("/", (req, res) => {
 // ==========================
 app.get("/api/stats/students", async (req, res) => {
   try {
+    // Obtener número de estudiantes activos usando función del módulo db
     const count = await getActiveStudentsCount();
     res.json({ studentsCount: count });
   } catch (error) {
+    // Manejo de error
     console.error("❌ Error en la ruta /api/stats/students:", error);
     res
       .status(500)
@@ -47,21 +55,21 @@ app.get("/api/stats/students", async (req, res) => {
 });
 
 // ==========================
-// Registrar usuario (SOLUCIÓN IMPLEMENTADA)
+// RUTA: Registrar usuario
 // ==========================
 app.post("/api/registro", async (req, res) => {
-  // Desestructuramos los datos del body
+  // Extraer datos enviados desde el body
   let { email, nombre, carrera, recibir } = req.body;
 
   // ================================
-  // NORMALIZACIÓN
+  // NORMALIZACIÓN DE DATOS
   // ================================
-  email = email.trim().toLowerCase();
+  email = email.trim().toLowerCase(); // Minusculas y sin espacios
   nombre = nombre.trim();
   carrera = carrera.trim();
-  recibir = !!recibir; // Asegura que sea true/false
+  recibir = !!recibir; // Garantiza true/false
 
-  // 1. PASO CLAVE: CONSULTA SELECT para verificar existencia (Ignora la restricción UNIQUE)
+  // 1. Verificar si ya existe el usuario antes de insertar
   const checkSql = `SELECT email FROM usuarios WHERE email = ?`;
 
   try {
@@ -78,7 +86,7 @@ app.post("/api/registro", async (req, res) => {
       });
     }
 
-    // 2. Si no existe, procede a la INSERCIÓN
+    // 2. Inserción del nuevo usuario en la base de datos
     const insertSql = `
             INSERT INTO usuarios (email, nombre, carrera_interes, recibir_correos)
             VALUES (?, ?, ?, ?)
@@ -91,14 +99,13 @@ app.post("/api/registro", async (req, res) => {
       recibir,
     ]);
 
+    // Respuesta exitosa
     res.status(201).json({
       success: true,
       message: "Usuario registrado correctamente.",
     });
   } catch (err) {
-    // En este punto, solo se llega si hay un error de conexión, sintaxis SQL, o un error inesperado.
-
-    // Mantenemos la lógica de 409 por si acaso la restricción UNIQUE del email sigue activa
+    // Manejo de errores inesperados o de duplicado no detectado
     if (err.code === "ER_DUP_ENTRY" || err.errno === 1062) {
       console.error(
         `❌ Error de duplicado: ${email}. El SELECT no lo detectó.`,
@@ -110,7 +117,7 @@ app.post("/api/registro", async (req, res) => {
       });
     }
 
-    // Otros errores del servidor
+    // Otros errores graves del servidor
     console.error("❌ Error grave en el servidor durante el registro:", err);
     return res.status(500).json({
       success: false,
@@ -120,12 +127,13 @@ app.post("/api/registro", async (req, res) => {
 });
 
 // ==========================
-// Gemini
+// Gemini 
 // ==========================
 app.post("/api/gemini", async (req, res) => {
   const { systemPrompt, history, userMessage } = req.body;
 
   try {
+    // Construye la conversación para enviar al modelo
     let conversationText = systemPrompt + "\n\n";
 
     history.forEach((msg) => {
@@ -136,6 +144,7 @@ app.post("/api/gemini", async (req, res) => {
 
     conversationText += `Usuario: ${userMessage}\nARIS:`;
 
+    // Llamada a la API de Gemini 
     const response = await axios.post(
       `https://generativelanguage.googleapis.com/v1/models/gemini-2.5-flash:generateContent?key=${process.env.GEMINI_API_KEY}`,
       {
@@ -147,21 +156,23 @@ app.post("/api/gemini", async (req, res) => {
       }
     );
 
+    // Extraer respuesta del modelo
     const text =
       response.data?.candidates?.[0]?.content?.parts?.[0]?.text ||
       "Volvemos pronto. Algo salió mal.";
 
     res.json({ reply: text });
   } catch (error) {
+    // Manejo de errores de la API externa
     console.error("❌ ERROR GEMINI:", error);
-    res.json({ reply: "Estas 🛠️ en mantenimiento." });
+    res.json({ reply: "Estamos 🛠️ en mantenimiento." });
   }
 });
 
 // ==========================
 // INICIAR SERVIDOR
 // ==========================
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3000; // Puerto configurable vía .env
 app.listen(PORT, () => {
   console.log(`Servidor corriendo en el puerto ${PORT}`);
 });

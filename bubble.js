@@ -1,30 +1,30 @@
 // ==========================================================
-// JAVASCRIPT CORREGIDO: GESTIÓN DE VISIBILIDAD UNIFICADA
+// GESTIÓN DE VISIBILIDAD UNIFICADA
 // ==========================================================
 
-// 1. Obtención de Elementos DOM
-const upBubble = document.querySelector('.Up-Bubble');
-const arisChatPanel = document.getElementById('aris-chat'); 
-const arisCloseButton = document.getElementById('aris-close');
-const body = document.body;
-const scrollThreshold = 300; 
+// 1. Obtención de elementos DOM
+const upBubble = document.querySelector('.Up-Bubble');        // Burbuja que aparece al hacer scroll
+const arisChatPanel = document.getElementById('aris-chat');   // Panel de chat ARIS
+const arisCloseButton = document.getElementById('aris-close'); // Botón de cerrar chat
+const body = document.body;                                   // Referencia al body
+const scrollThreshold = 300;                                  // Scroll mínimo para mostrar burbuja
 
-// --- FUNCIÓN CLAVE: Determinar si la burbuja DEBE mostrarse ---
+// --- FUNCIÓN PRINCIPAL: Determina si la burbuja debe mostrarse ---
 function checkBubbleVisibility() {
-    // A. Verifica si el chat de ARIS está abierto (detectando la clase 'active')
+    // A. Comprobar si el chat ARIS está activo
     const isChatActive = arisChatPanel.classList.contains('active');
     
-    // B. Verifica si el usuario ha hecho scroll suficiente
+    // B. Comprobar si el usuario ha hecho scroll suficiente
     const hasScrolledDown = window.scrollY > scrollThreshold;
     
-    // La burbuja solo debe mostrarse si NO está activo el chat Y ha hecho scroll.
+    // Mostrar burbuja solo si el chat NO está activo y se hizo scroll suficiente
     if (!isChatActive && hasScrolledDown) {
-        upBubble.classList.add('show');
+        upBubble.classList.add('show');   // Añadir clase 'show' para que la burbuja aparezca
     } else {
-        upBubble.classList.remove('show');
+        upBubble.classList.remove('show'); // Ocultar la burbuja
     }
     
-    // Además, aseguramos el estado 'chat-open' en el body para el CSS global
+    // Actualizar estado global del body para estilos CSS relacionados con chat abierto
     if (isChatActive) {
         body.classList.add('chat-open');
     } else {
@@ -34,29 +34,28 @@ function checkBubbleVisibility() {
 
 // 2. CONEXIÓN DE EVENTOS
 
-// 2a. Escuchador de eventos de scroll (llama a la función principal)
+// 2a. Verificar visibilidad al hacer scroll
 window.addEventListener('scroll', checkBubbleVisibility);
-checkBubbleVisibility(); // Verificar posición inicial
+checkBubbleVisibility(); // Verificar estado inicial al cargar la página
 
-// 2b. Conexión del botón de cierre de ARIS (Asegura la actualización al cerrar)
+// 2b. Escuchar clic en botón de cierre del chat
 if (arisCloseButton) {
     arisCloseButton.addEventListener('click', () => {
-        // Tu lógica para cerrar el chat (ej. quitar la clase 'active' del panel)
+        // Cierra el chat quitando la clase 'active'
         arisChatPanel.classList.remove('active');
         
-        // Ejecuta la verificación inmediatamente después de cerrar
+        // Actualiza la visibilidad de la burbuja inmediatamente
         checkBubbleVisibility(); 
     });
 }
 
-// 2c. *CRUCIAL* Modificación en la apertura del chat
-// Si el panel de chat se abre con un botón (ej: 'aris-open-btn'), asegúrate de que hace esto:
-/*
+// 2c. Nota: En caso de cambio de botón que abre el chat (ej: 'aris-open-btn'), debería ejecutar:
+ /*
 const arisOpenButton = document.getElementById('tu-boton-de-apertura');
 if (arisOpenButton) {
     arisOpenButton.addEventListener('click', () => {
         arisChatPanel.classList.add('active'); 
-        checkBubbleVisibility(); // Ejecuta la verificación inmediatamente al abrir
+        checkBubbleVisibility(); // Actualiza la burbuja al abrir
     });
 }
 */

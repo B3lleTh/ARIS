@@ -18,44 +18,44 @@
 /* =============================== */
 
 body {
-    margin: 0;
-    font-family: 'Arial', sans-serif;
-    background: var(--negro-verdoso);
-    color: var(--blanco-calido);
-    min-height: 100vh;
+    margin: 0; /* Elimina margen por defecto */
+    font-family: 'Arial', sans-serif; /* Fuente principal */
+    background: var(--negro-verdoso); /* Fondo general */
+    color: var(--blanco-calido); /* Color de texto principal */
+    min-height: 100vh; /* Altura mínima completa */
     display: flex;
-    flex-direction: column;
+    flex-direction: column; /* Para poder usar flex-grow en main */
 }
 
 main {
-    flex-grow: 1;
+    flex-grow: 1; /* Para que main ocupe todo el espacio disponible */
 }
 
 img {
-    max-width: 100%;
-    display: block;
-    height: auto;
+    max-width: 100%; /* Evita que la imagen se salga del contenedor */
+    display: block; /* Quita espacios por defecto */
+    height: auto; /* Mantiene proporción */
 }
 
 h1, h2, h3, h4 {
-    margin: 0;
+    margin: 0; /* Elimina márgenes por defecto */
 }
 
 .separator {
-    max-width: 90%;
-    margin: 50px auto;
-    border: none;
-    height: 1px;
-    background: linear-gradient(to right, transparent, var(--marron-gris), transparent);
+    max-width: 90%; /* Largo máximo */
+    margin: 50px auto; /* Centrado vertical y horizontal */
+    border: none; /* Quita borde por defecto */
+    height: 1px; /* Altura de la línea */
+    background: linear-gradient(to right, transparent, var(--marron-gris), transparent); /* Degradado sutil */
 }
 
 .vault-container,
 .resource-container,
 .practice-container,
 .internship-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 6%;
+    max-width: 1200px; /* Limita ancho */
+    margin: 0 auto; /* Centrado horizontal */
+    padding: 0 6%; /* Espaciado interno lateral */
 }
 
 /* ============================================= */
@@ -63,28 +63,28 @@ h1, h2, h3, h4 {
 /* ============================================= */
 
 .section-title {
-    font-size: clamp(2rem, 4vw, 3rem);
-    text-align: center;
-    color: var(--dorado); /* Color Dorado Destacado */
-    margin-bottom: 40px;
-    font-weight: 800;
+    font-size: clamp(2rem, 4vw, 3rem); /* Tamaño responsivo */
+    text-align: center; /* Centrado */
+    color: var(--dorado); /* Color dorado */
+    margin-bottom: 40px; /* Separación inferior */
+    font-weight: 800; /* Negrita fuerte */
 }
 
 .section-title span {
-    font-size: 0.6em;
-    color: var(--marron-gris);
-    display: block;
-    font-weight: normal;
+    font-size: 0.6em; /* Tamaño menor para subtítulo */
+    color: var(--marron-gris); /* Color secundario */
+    display: block; /* Apila en nueva línea */
+    font-weight: normal; /* Normaliza peso */
 }
 
 .cta-button {
-    background: var(--dorado);
-    color: var(--negro-verdoso);
-    padding: 10px 20px;
-    border-radius: 6px;
+    background: var(--dorado); /* Fondo dorado */
+    color: var(--negro-verdoso); /* Texto oscuro */
+    padding: 10px 20px; /* Espaciado interno */
+    border-radius: 6px; /* Bordes redondeados */
     font-weight: bold;
     text-decoration: none;
-    transition: 0.3s;
+    transition: 0.3s; /* Suavizado de hover */
     border: none;
     cursor: pointer;
     display: inline-block;
@@ -92,30 +92,30 @@ h1, h2, h3, h4 {
 }
 
 .cta-button:hover {
-    transform: translateY(-2px);
-    background: #f5b958; /* Tono más claro de Dorado para hover */
+    transform: translateY(-2px); /* Movimiento ligero hacia arriba */
+    background: #f5b958; /* Tono más claro de dorado */
 }
 
 .cta-button.secondary {
-    background: var(--naranja-cobre);
-    color: var(--blanco-calido);
+    background: var(--naranja-cobre); /* Fondo cobre */
+    color: var(--blanco-calido); /* Texto claro */
 }
 
 .cta-button.secondary:hover {
-    background: #733c17; /* Tono más oscuro de Cobre para hover */
+    background: #733c17; /* Tono más oscuro para hover */
 }
 
 .cta-button.resource-access-btn {
     margin-top: 15px;
     padding: 8px 15px;
     font-size: 0.9rem;
-    background: var(--marron-gris);
+    background: var(--marron-gris); /* Botón gris para recursos */
     color: var(--blanco-calido);
 }
 
 .cta-button.resource-access-btn:hover {
-    background: var(--naranja-cobre);
-    transform: none;
+    background: var(--naranja-cobre); /* Hover naranja */
+    transform: none; /* Sin movimiento */
 }
 
 .cta-button.small-cta {
@@ -139,41 +139,41 @@ h1, h2, h3, h4 {
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
-    padding: 80px 6%;
-    text-align: center;
-    border-bottom: 5px solid var(--naranja-cobre);
+    padding: 80px 6%; /* Espaciado interno */
+    text-align: center; /* Centrado de contenido */
+    border-bottom: 5px solid var(--naranja-cobre); /* Borde inferior cobre */
 }
 
 .career-header-content {
-    max-width: 900px;
-    margin: 0 auto;
+    max-width: 900px; /* Limita ancho */
+    margin: 0 auto; /* Centrado horizontal */
 }
 
 .career-main-title {
-    font-size: clamp(3rem, 6vw, 4.5rem);
-    color: var(--dorado);
-    text-shadow: 0 3px 5px #00000088;
+    font-size: clamp(3rem, 6vw, 4.5rem); /* Tamaño responsivo */
+    color: var(--dorado); /* Dorado */
+    text-shadow: 0 3px 5px #00000088; /* Sombra de texto para resaltar */
     margin-bottom: 20px;
 }
 
 .back-button {
     display: inline-block;
-    color: black;
+    color: black; /* Texto negro inicial */
     text-decoration: none;
     margin-top: 15px;
     font-size: 1.1rem;
     padding: 15px 30px;
     border-radius: 5px;
     transition: 0.3s;
-    background-color: var(--dorado);
+    background-color: var(--dorado); /* Fondo dorado */
     font-weight: bold;
     border: none;
 }
 
 .back-button:hover {
-    color: var(--dorado);
-    background: var(--negro-verdoso);
-    text-shadow: 0 1px 1px #ffc400aa;
+    color: var(--dorado); /* Texto dorado al pasar el mouse */
+    background: var(--negro-verdoso); /* Fondo oscuro */
+    text-shadow: 0 1px 1px #ffc400aa; /* Sombra ligera */
 }
 
 /* ============================================= */
@@ -181,61 +181,63 @@ h1, h2, h3, h4 {
 /* ============================================= */
 
 .soft-skills-vault {
-    padding: 60px 6%;
+    padding: 60px 6%; /* Espaciado vertical y horizontal de la sección */
 }
 
 .skills-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 30px;
+    display: grid; /* Grid para organizar las tarjetas */
+    grid-template-columns: repeat(3, 1fr); /* 3 columnas iguales por defecto */
+    gap: 30px; /* Espaciado entre tarjetas */
 }
 
+/* Responsive: tablets */
 @media (max-width: 900px) {
     .skills-grid {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(2, 1fr); /* 2 columnas en pantallas medianas */
     }
 }
 
+/* Responsive: móviles */
 @media (max-width: 600px) {
     .skills-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr; /* 1 columna en pantallas pequeñas */
     }
 }
 
 .skill-card {
-    background: var(--cafe-oscuro);
-    padding: 25px;
-    border-radius: 10px;
-    border-left: 5px solid var(--naranja-cobre);
-    box-shadow: 0 4px 10px #00000055;
+    background: var(--cafe-oscuro); /* Fondo de cada tarjeta */
+    padding: 25px; /* Espaciado interno */
+    border-radius: 10px; /* Bordes redondeados */
+    border-left: 5px solid var(--naranja-cobre); /* Línea lateral naranja */
+    box-shadow: 0 4px 10px #00000055; /* Sombra sutil */
     display: flex;
-    flex-direction: column;
+    flex-direction: column; /* Apilamos contenido verticalmente */
 }
 
 .skill-image-wrapper {
-    width: 100%;
-    height: 180px;
-    overflow: hidden;
-    border-radius: 8px;
-    margin-bottom: 15px;
+    width: 100%; /* Imagen ocupa todo el ancho */
+    height: 180px; /* Altura fija */
+    overflow: hidden; /* Oculta exceso de imagen */
+    border-radius: 8px; /* Bordes redondeados */
+    margin-bottom: 15px; /* Separación inferior */
 }
 
 .skill-image-wrapper img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+    width: 100%; /* Imagen ocupa todo el ancho */
+    height: 100%; /* Imagen ocupa toda la altura */
+    object-fit: cover; /* Imagen cubre el contenedor sin deformarse */
 }
 
 .skill-card h3 {
-    margin: 10px 0;
-    color: var(--dorado);
-    font-size: 1.4rem;
+    margin: 10px 0; /* Separación superior e inferior */
+    color: var(--dorado); /* Título en dorado */
+    font-size: 1.4rem; /* Tamaño de fuente */
 }
 
 .skill-card p {
-    color: var(--beige-grisaceo);
-    line-height: 1.6;
-    flex-grow: 1;
+    color: var(--beige-grisaceo); /* Texto descriptivo */
+    line-height: 1.6; /* Interlineado */
+    flex-grow: 1; /* Ocupa espacio restante */
 }
 
 /* ============================================= */
@@ -243,45 +245,45 @@ h1, h2, h3, h4 {
 /* ============================================= */
 
 .interview-prep-section {
-    margin-top: 60px;
-    background: var(--cafe-quemado);
-    padding: 40px;
-    border-radius: 10px;
-    text-align: center;
-    border: 1px solid var(--marron-gris);
+    margin-top: 60px; /* Separación superior */
+    background: var(--cafe-quemado); /* Fondo distinto */
+    padding: 40px; /* Espaciado interno */
+    border-radius: 10px; /* Bordes redondeados */
+    text-align: center; /* Centrado de texto */
+    border: 1px solid var(--marron-gris); /* Borde sutil */
 }
 
 .subsection-title {
-    color: var(--dorado);
+    color: var(--dorado); /* Título dorado */
     font-size: 1.8rem;
     margin-bottom: 10px;
 }
 
 .prep-intro-text {
-    color: var(--beige-grisaceo);
+    color: var(--beige-grisaceo); /* Texto introductorio */
     margin-bottom: 30px;
 }
 
 .highlight-q-a {
-    margin: 30px auto;
-    background: var(--negro-verdoso);
-    padding: 25px;
-    border-radius: 6px;
-    border-left: 5px solid var(--dorado);
-    text-align: left;
+    margin: 30px auto; /* Centrado con margen superior e inferior */
+    background: var(--negro-verdoso); /* Fondo oscuro */
+    padding: 25px; /* Espaciado interno */
+    border-radius: 6px; /* Bordes redondeados */
+    border-left: 5px solid var(--dorado); /* Línea izquierda dorada */
+    text-align: left; /* Alineación izquierda */
 }
 
 .highlight-q-a .question {
-    color: var(--dorado);
-    font-weight: bold;
+    color: var(--dorado); /* Pregunta en dorado */
+    font-weight: bold; /* Negrita */
     margin-bottom: 10px;
     font-size: 1.1rem;
 }
 
 .highlight-q-a .answer {
-    color: var(--beige-grisaceo);
-    font-style: italic;
-    line-height: 1.6;
+    color: var(--beige-grisaceo); /* Respuesta en beige grisáceo */
+    font-style: italic; /* Cursiva */
+    line-height: 1.6; /* Interlineado */
 }
 
 /* ============================================= */
@@ -289,42 +291,42 @@ h1, h2, h3, h4 {
 /* ============================================= */
 
 .external-resources-section {
-    padding: 60px 0;
-    background: var(--cafe-oscuro);
+    padding: 60px 0; /* Espaciado vertical */
+    background: var(--cafe-oscuro); /* Fondo oscuro */
 }
 
 .resources-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 25px;
+    display: grid; /* Grid para recursos */
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); /* Columnas adaptables */
+    gap: 25px; /* Separación entre tarjetas */
 }
 
 .resource-card {
-    background: var(--negro-verdoso);
-    padding: 25px;
-    border-radius: 10px;
-    border: 1px solid transparent;
-    transition: 0.3s;
+    background: var(--negro-verdoso); /* Fondo de tarjeta */
+    padding: 25px; /* Espaciado interno */
+    border-radius: 10px; /* Bordes redondeados */
+    border: 1px solid transparent; /* Borde inicial transparente */
+    transition: 0.3s; /* Suaviza hover */
     display: flex;
-    flex-direction: column;
+    flex-direction: column; /* Contenido apilado */
 }
 
 .resource-card:hover {
-    border-color: var(--dorado);
-    box-shadow: 0 0 15px rgba(228, 169, 67, 0.25); /* Sombra con el nuevo dorado */
+    border-color: var(--dorado); /* Borde dorado al pasar el mouse */
+    box-shadow: 0 0 15px rgba(228, 169, 67, 0.25); /* Sombra dorada */
 }
 
 .resource-icon-box {
-    font-size: 2rem;
+    font-size: 2rem; /* Tamaño del icono */
     margin-bottom: 15px;
     width: 50px;
     height: 50px;
     display: flex;
-    align-items: center;
-    justify-content: center;
-    background: var(--naranja-cobre);
-    border-radius: 50%;
-    color: var(--negro-verdoso);
+    align-items: center; /* Centrado vertical */
+    justify-content: center; /* Centrado horizontal */
+    background: var(--naranja-cobre); /* Fondo naranja */
+    border-radius: 50%; /* Circular */
+    color: var(--negro-verdoso); /* Icono oscuro */
 }
 
 .resource-card h3 {
@@ -336,7 +338,7 @@ h1, h2, h3, h4 {
 .resource-card p {
     color: var(--beige-grisaceo);
     line-height: 1.5;
-    flex-grow: 1;
+    flex-grow: 1; /* Ocupa espacio restante */
 }
 
 /* ============================================= */
@@ -344,7 +346,7 @@ h1, h2, h3, h4 {
 /* ============================================= */
 
 .practice-section {
-    padding: 60px 6%;
+    padding: 60px 6%; /* Espaciado interno */
     text-align: center;
 }
 
@@ -360,54 +362,54 @@ h1, h2, h3, h4 {
 .practice-btn {
     background: var(--marron-gris);
     color: var(--blanco-calido);
-    margin: 0 10px;
+    margin: 0 10px; /* Separación horizontal */
 }
 
 .practice-btn:hover {
     background: var(--marron-gris);
-    transform: none;
+    transform: none; /* Sin efecto de desplazamiento */
 }
 
 .practice-btn.active {
-    background: var(--naranja-cobre);
+    background: var(--naranja-cobre); /* Botón activo naranja */
     color: var(--blanco-calido);
-    border: 2px solid var(--dorado);
+    border: 2px solid var(--dorado); /* Borde dorado */
 }
 
 .practice-btn.active:hover {
-    background: #733c17;
+    background: #733c17; /* Hover del botón activo */
 }
 
 .practice-exercise-card {
-    background: var(--cafe-oscuro);
+    background: var(--cafe-oscuro); /* Fondo tarjeta de práctica */
     padding: 30px;
     border-radius: 10px;
     border: 2px solid var(--naranja-cobre);
-    max-width: 900px;
-    margin: auto;
-    text-align: left;
+    max-width: 900px; /* Ancho máximo */
+    margin: auto; /* Centrado horizontal */
+    text-align: left; /* Texto alineado a la izquierda */
 }
 
 #exercise-title {
-    color: var(--dorado);
+    color: var(--dorado); /* Título en dorado */
     font-size: 1.6rem;
     margin-bottom: 15px;
 }
 
 .exercise-details h4 {
-    color: var(--naranja-cobre);
+    color: var(--naranja-cobre); /* Subtítulo en naranja */
     margin-top: 15px;
     font-size: 1.1rem;
-    border-bottom: 1px solid var(--marron-gris);
+    border-bottom: 1px solid var(--marron-gris); /* Línea inferior */
     padding-bottom: 5px;
 }
 
 #exercise-output {
-    background: var(--negro-verdoso);
+    background: var(--negro-verdoso); /* Fondo del código */
     padding: 10px;
     border-radius: 4px;
-    overflow-x: auto;
-    color: #00ff7f;
+    overflow-x: auto; /* Scroll horizontal si es necesario */
+    color: #00ff7f; /* Color del texto de código */
 }
 
 #exercise-time {
@@ -415,77 +417,79 @@ h1, h2, h3, h4 {
     font-weight: bold;
 }
 
+
 /* ============================================= */
 /* INTERNSHIPS (Ajuste de Colores) */
 /* ============================================= */
 
 .internship-section {
-    padding: 60px 0;
-    background: var(--cafe-oscuro);
+    padding: 60px 0; /* Espaciado vertical de la sección */
+    background: var(--cafe-oscuro); /* Fondo oscuro para la sección de prácticas */
 }
 
 .internship-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
+    display: grid; /* Usamos CSS Grid para organizar las tarjetas */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+    /* Columnas automáticas con mínimo 300px y máximo 1fr */
+    gap: 30px; /* Separación entre tarjetas */
 }
 
 .internship-card {
-    background: var(--negro-verdoso);
-    padding: 0;
-    border-radius: 12px;
-    border: 2px solid var(--dorado);
-    transition: 0.3s;
-    box-shadow: 0 4px 12px #00000055;
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
+    background: var(--negro-verdoso); /* Fondo de la tarjeta */
+    padding: 0; /* Sin padding interno, manejado por .card-content */
+    border-radius: 12px; /* Bordes redondeados */
+    border: 2px solid var(--dorado); /* Borde dorado */
+    transition: 0.3s; /* Transiciones suaves para hover */
+    box-shadow: 0 4px 12px #00000055; /* Sombra sutil */
+    overflow: hidden; /* Evita que contenido sobresalga */
+    display: flex; /* Flexbox interno para organizar contenido */
+    flex-direction: column; /* Apilamos verticalmente */
 }
 
 .internship-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 6px 15px rgba(228, 169, 67, 0.35); /* Sombra con el nuevo dorado */
+    transform: translateY(-5px); /* Efecto de elevación al pasar el mouse */
+    box-shadow: 0 6px 15px rgba(228, 169, 67, 0.35); /* Sombra dorada más destacada */
 }
 
 .internship-image-wrapper {
-    width: 100%;
-    height: 200px;
-    overflow: hidden;
+    width: 100%; /* Ocupa todo el ancho de la tarjeta */
+    height: 200px; /* Altura fija de la imagen */
+    overflow: hidden; /* Oculta exceso de imagen */
 }
 
 .internship-image-wrapper img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.4s;
+    width: 100%; /* Imagen ocupa todo el ancho */
+    height: 100%; /* Imagen ocupa toda la altura */
+    object-fit: cover; /* La imagen cubre el contenedor sin deformarse */
+    transition: transform 0.4s; /* Transición suave para zoom */
 }
 
 .internship-card:hover .internship-image-wrapper img {
-    transform: scale(1.05);
+    transform: scale(1.05); /* Zoom leve en hover */
 }
 
 .card-content {
-    padding: 25px;
-    flex-grow: 1;
+    padding: 25px; /* Espaciado interno */
+    flex-grow: 1; /* Ocupa todo el espacio disponible */
     display: flex;
-    flex-direction: column;
+    flex-direction: column; /* Apilamos contenido verticalmente */
 }
 
 .card-content h3 {
-    font-size: 1.5rem;
-    color: var(--dorado);
-    margin-bottom: 5px;
+    font-size: 1.5rem; /* Tamaño del título */
+    color: var(--dorado); /* Título en dorado */
+    margin-bottom: 5px; /* Separación inferior */
 }
 
 .card-content .role {
-    color: var(--naranja-cobre);
-    font-weight: bold;
+    color: var(--naranja-cobre); /* Color de rol */
+    font-weight: bold; /* Texto en negrita */
     margin-bottom: 5px;
 }
 
 .card-content .location {
-    color: var(--beige-grisaceo);
-    font-style: italic;
+    color: var(--beige-grisaceo); /* Color de ubicación */
+    font-style: italic; /* Texto en cursiva */
     font-size: 0.95rem;
     margin-bottom: 10px;
 }
@@ -496,24 +500,23 @@ h1, h2, h3, h4 {
 
 .focus-tag {
     /* Contraste mejorado y aspecto más pulido */
-    background: var(--naranja-cobre);
-    color: var(--negro-verdoso); /* Color de texto oscuro para alto contraste */
-    padding: 5px 10px;
-    border-radius: 4px;
+    background: var(--naranja-cobre); /* Fondo naranja */
+    color: var(--negro-verdoso); /* Texto oscuro para contraste */
+    padding: 5px 10px; /* Espaciado interno */
+    border-radius: 4px; /* Bordes redondeados */
     font-size: 0.85rem;
     font-weight: bold;
-    /* Usamos Flexbox para el contenedor de etiquetas si hubiera más */
-    display: inline-block; 
-    margin: 10px 5px 20px 0; /* Un poco de margen a la derecha y abajo */
-    text-transform: uppercase; /* Estilo profesional */
-    letter-spacing: 0.5px;
-    text-align: center;
+    display: inline-block; /* Para etiquetas múltiples en línea */
+    margin: 10px 5px 20px 0; /* Margen: top, right, bottom, left */
+    text-transform: uppercase; /* Texto en mayúsculas */
+    letter-spacing: 0.5px; /* Espaciado entre letras */
+    text-align: center; /* Centrado del texto */
 }
 
-/* Si tuvieras varias etiquetas dentro de un contenedor, este estilo las manejaría mejor: */
+/* Contenedor opcional para múltiples etiquetas */
 .tag-container {
     display: flex;
-    flex-wrap: wrap;
+    flex-wrap: wrap; /* Permite que las etiquetas se ajusten a varias líneas */
     margin-bottom: 10px;
 }
 /* Tendrías que envolver tus focus-tags con <div class="tag-container">...</div> */
@@ -523,64 +526,64 @@ h1, h2, h3, h4 {
 /* ============================================= */
 
 .inspirational-footer {
-    padding: 50px 6% 20px;
-    background: var(--negro-verdoso);
-    border-top: 4px solid var(--naranja-cobre);
-    margin-top: auto;
+    padding: 50px 6% 20px; /* Padding: top, horizontal %, bottom */
+    background: var(--negro-verdoso); /* Fondo oscuro */
+    border-top: 4px solid var(--naranja-cobre); /* Línea superior dorada */
+    margin-top: auto; /* Empuja el footer hacia abajo si el contenido es menor */
 }
 
 .footer-content {
     max-width: 1200px;
-    margin: 0 auto;
+    margin: 0 auto; /* Centrado horizontal */
 }
 
 .footer-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 35px;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); 
+    /* Columnas adaptables */
+    gap: 35px; /* Separación entre columnas */
     align-items: start;
 }
 
-/* Se asegura de que la columna de enlaces esté siempre visible y bien estructurada */
+/* Columna de navegación siempre visible */
 .footer-links-section {
-    /* Asegura que ocupe espacio si otras columnas fallan en responsive */
-    min-width: 180px; 
+    min-width: 180px; /* Asegura espacio mínimo */
 }
 
 .footer-links-section h4 {
-    color: var(--dorado); /* Título de navegación en Dorado */
+    color: var(--dorado); /* Título en dorado */
     margin-bottom: 15px;
     font-size: 1.2rem;
-    border-bottom: 1px solid var(--cafe-oscuro); /* Línea sutil bajo el título */
+    border-bottom: 1px solid var(--cafe-oscuro); /* Línea sutil debajo */
     padding-bottom: 5px;
 }
 
-/* Aplicando el estilo 'footer-column' directamente a la estructura de enlaces */
+/* Enlaces del footer */
 .footer-links-section a { 
     color: var(--beige-grisaceo);
     display: block;
     margin-bottom: 10px;
     text-decoration: none;
     transition: 0.3s;
-    padding-left: 10px; /* Pequeño indentado para mejor lectura */
+    padding-left: 10px; /* Indentado para estilo */
     border-left: 2px solid transparent; /* Línea de efecto hover */
 }
 
 .footer-links-section a:hover {
-    color: var(--dorado);
-    transform: translateX(5px);
-    border-left: 2px solid var(--dorado); /* Línea de énfasis al pasar el mouse */
+    color: var(--dorado); /* Cambia a dorado al pasar el mouse */
+    transform: translateX(5px); /* Efecto de desplazamiento */
+    border-left: 2px solid var(--dorado); /* Línea visible en hover */
 }
 
-/* Estilos de citas (se mantienen, solo se ajustan los colores) */
+/* Estilos de citas en el footer */
 .quote-section {
     padding-right: 20px;
-    border-right: 1px solid var(--cafe-oscuro);
+    border-right: 1px solid var(--cafe-oscuro); /* Línea derecha */
     height: 100%;
 }
 
 .quote-icon {
-    font-size: 3rem;
+    font-size: 3rem; /* Tamaño del icono */
     color: var(--naranja-cobre);
     line-height: 1;
     margin-bottom: 10px;
@@ -589,7 +592,7 @@ h1, h2, h3, h4 {
 }
 
 .quote-text {
-    font-style: italic;
+    font-style: italic; /* Cita en cursiva */
     color: var(--blanco-calido);
     margin-bottom: 10px;
     font-size: 1.1rem;
@@ -618,14 +621,14 @@ h1, h2, h3, h4 {
 
 @media (max-width: 768px) {
     .quote-section {
-        border-right: none;
-        border-bottom: 1px solid var(--cafe-oscuro);
+        border-right: none; /* Quitamos borde lateral */
+        border-bottom: 1px solid var(--cafe-oscuro); /* Borde inferior en móviles */
         padding-bottom: 20px;
         margin-bottom: 20px;
     }
 
     .quote-section:last-child {
-        border-bottom: none;
+        border-bottom: none; /* Última cita sin borde inferior */
         padding-bottom: 0;
         margin-bottom: 0;
     }
@@ -633,11 +636,11 @@ h1, h2, h3, h4 {
 
 @media (max-width: 600px) {
     .practice-exercise-card {
-        padding: 18px;
+        padding: 18px; /* Ajuste de padding en móviles */
     }
 
     .internship-image-wrapper,
     .skill-image-wrapper {
-        height: 150px;
+        height: 150px; /* Reducir altura de imágenes en móvil */
     }
 }
