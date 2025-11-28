@@ -1,0 +1,724 @@
+/* Slider de Advertise */
+.advertise-slider {
+padding: 100px 0;
+background: linear-gradient(180deg, transparent, rgba(137, 73, 30, 0.05), transparent);
+position: relative;
+overflow: hidden;
+z-index: 2;
+}
+.slider-container {
+position: relative;
+max-width: 1400px;
+margin: 0 auto;
+padding: 0 50px;
+}
+.slider-title {
+text-align: center;
+font-size: 3.8em;
+background: linear-gradient(0deg, var(--dorado), var(--naranja-cobre), var(--dorado));
+-webkit-background-clip: text;
+background-clip: text;
+-webkit-text-fill-color: transparent;
+margin-bottom: 60px;
+animation: titlePulse 3s ease-in-out infinite;
+font-family: Orb;
+}
+@keyframes titlePulse {
+0%, 100% { opacity: 0.9; }
+50% { opacity: 1; }
+}
+.slider-wrapper {
+overflow: hidden;
+position: relative;
+}
+.slider-track {
+  display: flex;
+  gap: 30px;
+  width:min-content;
+  animation: slide 20s linear infinite;
+}
+
+@keyframes slide {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(calc(-50% - 15px));
+  }
+}
+.slide-card {
+  min-width: 350px;
+  height: 385px;
+  background: linear-gradient(135deg, rgba(50, 41, 28, 0.6), rgba(92, 56, 31, 0.3));
+  border: 2px solid var(--naranja-cobre);
+  border-radius: 20px;
+  padding: 35px;
+  backdrop-filter: blur(10px);
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+.slide-card::before {
+content: '';
+position: absolute;
+top: 0;
+left: -100%;
+width: 100%;
+height: 100%;
+background: linear-gradient(90deg, transparent, rgba(228, 169, 67, 0.3), transparent);
+transition: left 0.6s ease;
+}
+.slide-card:hover::before {
+left: 100%;
+}
+.slide-card:hover {
+transform: translateY(-10px) scale(1.05);
+border-color: var(--dorado);
+box-shadow: 0 15px 50px rgba(228, 169, 67, 0.5);
+}
+.slide-icon {
+font-size: 3.5em;
+margin-bottom: 20px;
+filter: drop-shadow(0 0 15px var(--dorado));
+}
+.slide-card h3 {
+color: var(--dorado);
+font-size: 1.6em;
+margin-bottom: 15px;
+}
+.slide-card p {
+color: var(--beige-grisaceo);
+line-height: 1.6;
+font-size: 1.05em;
+}
+
+/* Purpose Section */
+.purpose-section {
+padding: 120px 50px;
+position: relative;
+z-index: 2;
+background: radial-gradient(circle at center, rgba(228, 169, 67, 0.08), transparent);
+}
+.purpose-container {
+max-width: 1200px;
+margin: 0 auto;
+}
+.purpose-title {
+text-align: center;
+font-size: 3.8em;
+font-family: Orb;
+background: linear-gradient(45deg, var(--dorado), var(--naranja-cobre));
+-webkit-background-clip: text;
+background-clip: text;
+-webkit-text-fill-color: transparent;
+margin-bottom: 60px;
+}
+.purpose-grid {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+gap: 40px;
+}
+.purpose-card {
+background: linear-gradient(135deg, rgba(50, 41, 28, 0.7), rgba(92, 56, 31, 0.2));
+padding: 40px;
+border-radius: 20px;
+border: 2px solid var(--naranja-cobre);
+transition: all 0.4s ease;
+position: relative;
+overflow: hidden;
+}
+.purpose-card::before {
+content: '';
+position: absolute;
+top: -50%;
+right: -50%;
+width: 200%;
+height: 200%;
+background: conic-gradient(from 0deg, transparent, var(--dorado), transparent 30%);
+animation: rotate 6s linear infinite;
+opacity: 0;
+transition: opacity 0.4s ease;
+}
+.purpose-card:hover::before {
+opacity: 0.2;
+}
+@keyframes rotate {
+100% { transform: rotate(360deg); }
+}
+.purpose-card:hover {
+transform: translateY(-10px);
+border-color: var(--dorado);
+box-shadow: 0 20px 60px rgba(228, 169, 67, 0.4);
+}
+.purpose-card-content {
+position: relative;
+z-index: 1;
+}
+.purpose-icon {
+font-size: 3em;
+margin-bottom: 20px;
+display: inline-block;
+animation: bounce 2s ease-in-out infinite;
+}
+@keyframes bounce {
+0%, 100% { transform: translateY(0); }
+50% { transform: translateY(-10px); }
+}
+.purpose-card h3 {
+color: var(--dorado);
+font-size: 1.8em;
+margin-bottom: 20px;
+}
+.purpose-card p {
+color: var(--beige-grisaceo);
+line-height: 1.7;
+font-size: 1.1em;
+}
+/* ========================= ARIS CHAT PANEL =========================== */
+/* ========================= ARIS CHAT PANEL =========================== */
+/* ========================= ARIS CHAT PANEL =========================== */
+.aris-chat-panel {
+position: fixed;
+right: -600px;
+top: 50%;
+transform: translateY(-50%);
+width: 600px;
+height: 800px;
+background: linear-gradient(135deg, rgba(27, 28, 20, 0.98), rgba(50, 41, 28, 0.95));
+border: 2px solid var(--dorado);
+border-radius: 20px;
+box-shadow: 0 20px 60px rgba(228, 169, 67, 0.4);
+z-index: 1000;
+display: flex;
+flex-direction: column;
+backdrop-filter: blur(20px);
+transition: right 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.aris-chat-panel.active {
+right: 30px;
+}
+
+.aris-chat-header {
+display: flex;
+justify-content: space-between;
+align-items: center;
+padding: 20px;
+background: linear-gradient(135deg, var(--naranja-cobre), var(--cafe-quemado));
+border-radius: 18px 18px 0 0;
+border-bottom: 2px solid var(--dorado);
+}
+
+.aris-header-info {
+display: flex;
+align-items: center;
+gap: 15px;
+}
+
+.aris-avatar {
+width: 50px;
+height: 50px;
+background: linear-gradient(135deg, var(--dorado), var(--naranja-cobre));
+border-radius: 50%;
+display: flex;
+align-items: center;
+justify-content: center;
+font-size: 1.5em;
+border: 2px solid var(--blanco-calido);
+animation: avatarPulse 2s ease-in-out infinite;
+}
+
+@keyframes avatarPulse {
+0%, 100% { box-shadow: 0 0 10px rgba(228, 169, 67, 0.5); }
+50% { box-shadow: 0 0 20px rgba(228, 169, 67, 0.9); }
+}
+
+.aris-header-info h3 {
+color: var(--blanco-calido);
+font-size: 1.3em;
+margin: 0;
+}
+
+.aris-status {
+color: var(--beige-grisaceo);
+font-size: 0.85em;
+}
+
+.aris-close-btn {
+background: rgba(241, 241, 239, 0.2);
+border: 2px solid var(--blanco-calido);
+color: var(--blanco-calido);
+width: 35px;
+height: 35px;
+border-radius: 50%;
+cursor: pointer;
+font-size: 1.2em;
+transition: all 0.3s ease;
+display: flex;
+align-items: center;
+justify-content: center;
+}
+
+.aris-close-btn:hover {
+background: var(--blanco-calido);
+color: var(--negro-verdoso);
+transform: rotate(90deg);
+}
+
+.aris-messages {
+flex: 1;
+overflow-y: auto;
+padding: 20px;
+display: flex;
+flex-direction: column;
+gap: 15px;
+}
+
+.aris-messages::-webkit-scrollbar {
+width: 8px;
+}
+
+.aris-messages::-webkit-scrollbar-track {
+background: rgba(160, 147, 135, 0.1);
+border-radius: 10px;
+}
+
+.aris-messages::-webkit-scrollbar-thumb {
+background: var(--naranja-cobre);
+border-radius: 10px;
+}
+
+.aris-messages::-webkit-scrollbar-thumb:hover {
+background: var(--dorado);
+}
+
+.aris-message {
+max-width: 80%;
+padding: 12px 18px;
+border-radius: 18px;
+line-height: 1.5;
+animation: messageSlide 0.3s ease;
+}
+
+@keyframes messageSlide {
+from { opacity: 0; transform: translateY(10px); }
+to { opacity: 1; transform: translateY(0); }
+}
+
+.aris-message.user {
+align-self: flex-end;
+background: linear-gradient(135deg, var(--dorado), var(--naranja-cobre));
+color: var(--negro-verdoso);
+border-bottom-right-radius: 5px;
+}
+
+.aris-message.assistant {
+align-self: flex-start;
+background: rgba(50, 41, 28, 0.8);
+color: var(--blanco-calido);
+border: 1px solid var(--naranja-cobre);
+border-bottom-left-radius: 5px;
+}
+
+.aris-typing-indicator {
+padding: 10px 20px;
+background: rgba(137, 73, 30, 0.3);
+border-top: 1px solid var(--naranja-cobre);
+display: flex;
+align-items: center;
+gap: 10px;
+}
+
+.aris-typing-indicator span {
+color: var(--beige-grisaceo);
+font-size: 0.9em;
+}
+
+.typing-dots {
+display: flex;
+gap: 4px;
+}
+
+.typing-dots span {
+width: 6px;
+height: 6px;
+background: var(--dorado);
+border-radius: 50%;
+animation: typingDot 1.4s ease-in-out infinite;
+}
+
+.typing-dots span:nth-child(2) {
+animation-delay: 0.2s;
+}
+
+.typing-dots span:nth-child(3) {
+animation-delay: 0.4s;
+}
+
+.aris-input-area {
+display: flex;
+padding: 15px;
+gap: 10px;
+background: rgba(27, 28, 20, 0.9);
+border-radius: 0 0 18px 18px;
+border-top: 2px solid var(--naranja-cobre);
+}
+
+.aris-input-area input {
+flex: 1;
+padding: 12px 15px;
+background: rgba(50, 41, 28, 0.6);
+border: 1px solid var(--naranja-cobre);
+border-radius: 25px;
+color: var(--blanco-calido);
+font-size: 0.95em;
+outline: none;
+transition: all 0.3s ease;
+}
+
+.aris-input-area input:focus {
+border-color: var(--dorado);
+box-shadow: 0 0 10px rgba(228, 169, 67, 0.3);
+}
+
+.aris-input-area input::placeholder {
+color: var(--beige-grisaceo);
+}
+
+.aris-voice-btn,
+.aris-send-btn {
+width: 45px;
+height: 45px;
+border: none;
+border-radius: 50%;
+cursor: pointer;
+font-size: 1.1em;
+transition: all 0.3s ease;
+display: flex;
+align-items: center;
+justify-content: center;
+}
+
+.aris-voice-btn {
+background: linear-gradient(135deg, var(--cafe-quemado), var(--naranja-cobre));
+color: var(--blanco-calido);
+}
+
+.aris-voice-btn:hover {
+transform: scale(1.1);
+box-shadow: 0 5px 15px rgba(137, 73, 30, 0.5);
+}
+
+.aris-voice-btn.listening {
+background: linear-gradient(135deg, #ff4444, #cc0000);
+animation: pulseListening 1s ease-in-out infinite;
+}
+
+@keyframes pulseListening {
+0%, 100% { box-shadow: 0 0 10px rgba(255, 68, 68, 0.5); }
+50% { box-shadow: 0 0 25px rgba(255, 68, 68, 0.9); }
+}
+
+.aris-send-btn {
+background: linear-gradient(135deg, var(--dorado), var(--naranja-cobre));
+color: var(--negro-verdoso);
+}
+
+.aris-send-btn:hover {
+transform: scale(1.1) rotate(45deg);
+box-shadow: 0 5px 20px rgba(228, 169, 67, 0.6);
+}
+
+/* ============================================== */
+/* CSS: UP BUBBLE y REGLAS DE VISIBILIDAD */
+/* ============================================== */
+
+/* Estilos Base (Oculto por defecto) */
+.Up-Bubble {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 4rem;
+    height: 4rem;
+    position: fixed;
+    bottom: 2%;
+    right: 2%;
+    z-index: 9999;
+    border-radius: 50%;
+    background:linear-gradient(135deg, var(--dorado), var(--naranja-cobre));
+    transition: opacity .3s ease-in-out, transform .3s ease-in-out; 
+    
+    /* Estado Inicial Oculto (arriba en la página) */
+    opacity: 0; 
+    pointer-events: none; /* Deshabilita clics cuando no está visible */
+    transform: translateY(20px); 
+}
+
+/* Estilo para la imagen dentro de la burbuja */
+.Up-Bubble img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Estilo al pasar el ratón */
+.Up-Bubble:hover{
+    transform: scale(1.05);
+    border-color: var(--dorado);
+    box-shadow: 0 1px 30px rgba(228, 169, 67, 0.5);
+}
+
+/* ESTADO 1: VISIBLE por SCROLL (Añadido por JavaScript) */
+.Up-Bubble.show {
+    opacity: 1;
+    pointer-events: auto; /* Habilita clics */
+    transform: translateY(0);
+}
+
+/* ESTADO 2: ANULACIÓN MAESTRA (Añadido por JavaScript al abrir el chat) */
+/* Esta regla anula el estado .show y garantiza que la burbuja desaparece */
+body.chat-open .Up-Bubble {
+    /* Usamos !important para asegurar que anula la opacidad: 1 de .show */
+    opacity: 0 !important; 
+    
+    /* Crucial: Desactiva la interacción con el ratón */
+    pointer-events: none !important; 
+    
+    /* Mueve la burbuja fuera de la vista para asegurar que no estorba */
+    transform: translateY(20px) !important;
+}
+/* ====== BURBUJA DE PENSAMIENTO ====== */
+/* ====== BURBUJA DE PENSAMIENTO ====== */
+/* ====== BURBUJA DE PENSAMIENTO ====== */
+.thought-bubble {
+position: absolute;
+top: -70px;
+right: 450px;
+background: rgba(255, 167, 2, 0.12);
+backdrop-filter: blur(8px);
+padding: 15px 20px;
+border-radius: 20px;
+font-size: 0.95em;
+color: var(--blanco-calido);
+border: 1px solid rgba(255,255,255,0.25);
+box-shadow: 0 4px 20px rgba(228, 169, 67, 0.3);
+animation: bubbleFloat 4s ease-in-out infinite;
+}
+
+.thought-bubble::after {
+content: '';
+position: absolute;
+bottom: -20px;
+right: 30px;
+width: 15px;
+height: 15px;
+background: rgba(255, 188, 4, 0.12);
+border-radius: 50%;
+border: 1px solid rgba(255, 230, 0, 0.25);
+}
+
+@keyframes bubbleFloat {
+0%,100% { transform: translateY(0); }
+50% { transform: translateY(-8px); }
+}
+.thought-bubble::before {
+    content: '';
+    position: absolute;
+    bottom: -40px;   
+    right: 10px;     
+    width: 12px;
+    height: 12px;
+    background: rgba(255, 188, 4, 0.12);
+    border-radius: 50%;
+    border: 1px solid rgba(255, 230, 0, 0.25);
+}
+
+/* ===================================================
+   Advertise Slider Responsive
+   =================================================== */
+
+/* Ajustes generales para tablets */
+@media (max-width: 1024px) {
+    .advertise-slider {
+        padding: 80px 0;
+    }
+    .slider-container {
+        padding: 0 20px;
+    }
+    .slider-title {
+        font-size: 3em;
+        margin-bottom: 50px;
+    }
+    /* Reducir ligeramente el tamaño de las tarjetas en tabletas */
+    .slide-card {
+        min-width: 300px;
+        height: 300px;
+        padding: 30px;
+    }
+}
+
+/* Ajustes específicos para móviles */
+@media (max-width: 767px) {
+    .advertise-slider {
+        padding: 60px 0;
+    }
+    .slider-container {
+        padding: 0 15px;
+    }
+    .slider-title {
+        font-size: 2.5em;
+        margin-bottom: 40px;
+    }
+
+    /* Reducir la velocidad de la animación en móvil para que sea más fácil de ver */
+    .slider-track {
+        animation-duration: 30s; 
+        gap: 20px;
+    }
+
+    .slide-card {
+        min-width: 280px;
+        height: auto; /* Dejar que el contenido defina la altura */
+        padding: 25px;
+    }
+
+    .slide-icon {
+        font-size: 3em;
+        margin-bottom: 15px;
+    }
+
+    .slide-card h3 {
+        font-size: 1.4em;
+    }
+
+    .slide-card p {
+        font-size: 1em;
+    }
+}
+
+/* ===================================================
+   Purpose Section Responsive
+   =================================================== */
+
+/* Ajustes generales para tablets */
+@media (max-width: 1024px) {
+    .purpose-section {
+        padding: 100px 30px;
+    }
+    .purpose-title {
+        font-size: 3em;
+        margin-bottom: 50px;
+    }
+    
+    /* En tablets, permitimos que la cuadrícula muestre 2 tarjetas cómodamente */
+    .purpose-grid {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 30px;
+    }
+
+    .purpose-card {
+        padding: 30px;
+    }
+
+    .purpose-card h3 {
+        font-size: 1.6em;
+    }
+    .purpose-card p {
+        font-size: 1em;
+    }
+}
+
+/* Ajustes específicos para móviles */
+@media (max-width: 600px) {
+    .purpose-section {
+        padding: 80px 20px;
+    }
+    .purpose-title {
+        font-size: 2.5em;
+        margin-bottom: 40px;
+    }
+    
+    /* En móviles, forzamos una sola columna para la cuadrícula */
+    .purpose-grid {
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+}
+
+/* ===================================================
+   ARIS CHAT PANEL Responsive
+   =================================================== */
+
+/* Ajustes generales para tablets (hasta 1024px) */
+@media (max-width: 1024px) {
+    .aris-chat-panel {
+        width: 450px; /* Reducir ancho */
+        height: 650px; /* Reducir alto */
+    }
+    
+    /* Ajustar posición para que quede más cerca del borde */
+    .aris-chat-panel.active {
+        right: 20px; 
+    }
+    
+    .thought-bubble {
+        /* Mover la burbuja de pensamiento a una posición relativa más cercana */
+        right: 350px; 
+        top: -60px;
+    }
+}
+
+
+/* Ajustes críticos para móviles (hasta 600px) */
+@media (max-width: 600px) {
+    .aris-chat-panel {
+        /* Ocupar casi todo el ancho y alto de la pantalla */
+        width: 95vw; 
+        height: 90vh; 
+        
+        /* Centrarlo vertical y horizontalmente */
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        right: auto; /* Desactivar la regla 'right' */
+        
+        /* Ocultar completamente fuera del viewport */
+        transform: translate(100vw, -50%); 
+        border-radius: 10px;
+    }
+
+    .aris-chat-panel.active {
+        /* Mover al centro del viewport */
+        transform: translate(-50%, -50%);
+        right: auto;
+    }
+    
+    .aris-header-info h3 {
+        font-size: 1.2em;
+    }
+    
+    .aris-messages {
+        padding: 15px;
+        gap: 10px;
+    }
+    
+    .aris-message {
+        max-width: 90%; /* Dejar más espacio en los bordes */
+        padding: 10px 15px;
+        font-size: 0.9em;
+    }
+
+    .aris-input-area {
+        padding: 10px;
+    }
+    
+    /* Ocultar la burbuja de pensamiento en móvil para no estorbar */
+    .thought-bubble {
+        display: none;
+    }
+
+    /* Ocultar el botón de voz si no se usa para ahorrar espacio */
+    .aris-voice-btn {
+        display: none; 
+    }
+}

@@ -1,0 +1,826 @@
+/* ============================================= */
+/* FORMULARIO*/
+/* ============================================= */
+.registro-super {
+  padding: 100px 20px;
+  display: flex;
+  justify-content: center;
+  background: var(--negro-verdoso);
+}
+.registro-card {
+  width: 100%;
+  max-width: 600px;
+  background:#32291C;
+  backdrop-filter: blur(15px);
+  padding: 45px;
+  border-radius: 25px;
+  box-shadow: 0 10px 35px #e1aa4b;
+  animation: fadeIn 0.9s ease;
+}
+
+/* Animación de entrada */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.titulo-registro {
+  font-size: 2.2rem;
+  color: #E4A943;
+  margin-bottom: 5px;
+}
+
+.subtitulo-registro {
+  color: #666;
+  margin-bottom: 35px;
+}
+
+/* Inputs Modernos */
+.form-modern .input-group {
+  position: relative;
+  margin-bottom: 25px;
+}
+
+.form-modern input,
+.form-modern select {
+  width: 100%;
+  padding: 16px 14px;
+  border-radius: 12px;
+  border: 2px solid transparent;
+  background: #f1eeff;
+  font-size: 1rem;
+  outline: none;
+  transition: all 0.25s ease;
+}
+
+/* Animación flotante del label */
+.form-modern label {
+  position: absolute;
+  top: 50%;
+  left: 14px;
+  transform: translateY(-50%);
+  pointer-events: none;
+  transition: 0.25s ease;
+  color:#E4A943;
+  font-size: 1rem;
+}
+
+.form-modern input:focus,
+.form-modern select:focus {
+  background: #ffffff;
+  border-color: #E4A943;
+  box-shadow: 0 0 8px #E4A943;
+}
+
+.form-modern input:focus + label,
+.form-modern input:not(:placeholder-shown) + label,
+.form-modern select:focus + label,
+.form-modern select:not([value=""]) + label {
+  top: -6px;
+  left: 10px;
+  background: white;
+  padding: 0 6px;
+  border-radius: 6px;
+  font-size: 0.75rem;
+  color: #1B1C14;
+}
+
+/* Select estilo moderno */
+.select-group select {
+  appearance: none;
+  background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' fill='%234b2aad' height='24' width='24'><path d='M7 10l5 5 5-5z'/></svg>");
+  background-repeat: no-repeat;
+  background-position: right 14px center;
+}
+
+/* Checkbox */
+.checkbox {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 25px;
+}
+
+.checkbox input {
+  width: 18px;
+  height: 18px;
+}
+
+/* Botón Moderno */
+.btn-modern {
+  width: 100%;
+  padding: 16px;
+  border: none;
+  border-radius: 14px;
+  background:#ffa600;
+  color: white;
+  font-size: 1.2rem;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  transition: 0.3s ease;
+}
+
+.btn-modern:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(255, 157, 0, 0.3);
+}
+
+.btn-icon {
+  transition: 0.3s ease;
+}
+
+.btn-modern:hover .btn-icon {
+  transform: translateX(4px);
+}
+
+/* ============================= CARDS =================================*/
+.dynamic-cards-section {
+  padding: 80px 20px;
+  background-color: var(--color-background-dark);
+  color: var(--color-text-light);
+}
+
+.dynamic-cards-header {
+  max-width: 800px;
+  margin: 0 auto 50px auto;
+  text-align: center;
+}
+
+.dynamic-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+  color: var(--color-text-light);
+}
+
+/* Contenedor principal de la cuadrícula: 4 columnas */
+.cards-grid-wrapper {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: auto;
+  gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Estilos de la tarjeta individual: DINAMISMO Y BASE */
+.dynamic-card {
+  background-color: #2c2c2c;
+  border-radius: var(--card-border-radius);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  /* Mayor dinamismo: Transición de todo y cubic-bezier para efecto "suave" */
+  transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1),
+    box-shadow 0.4s ease, border 0.4s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  border: 1px solid transparent;
+}
+
+/* EFECTOS HOVER MEJORADOS */
+.dynamic-card:hover {
+  transform: translateY(-8px); /* Más movimiento */
+  /* Efecto de brillo (Glow) */
+  box-shadow: 0 0 10px rgba(255, 213, 0, 0.5), 0 20px 40px rgba(0, 0, 0, 0.5);
+  border: 1px solid var(--color-accent); /* Borde sutil de color */
+}
+
+/* Card Principal - POSICIONAMIENTO ORIGINAL */
+.main-card {
+  grid-column: 1 / span 2; /* Ocupa las primeras dos columnas */
+  grid-row: 1 / span 2; /* Ocupa dos filas para ser alta */
+  display: grid;
+  grid-template-rows: 2fr 1fr; /* Imagen 2/3, Contenido 1/3 */
+}
+
+/* Estilos de Imagen en todas las tarjetas */
+.dynamic-card .card-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+/* Zoom en la Imagen al hacer hover */
+.dynamic-card:hover .card-image {
+  transform: scale(1.08);
+}
+
+/* Card Principal Content */
+.main-card .card-content {
+  padding: 25px;
+}
+.main-card .card-title {
+  font-size: 1.8rem;
+}
+
+/* Cards Secundarias - POSICIONAMIENTO ORIGINAL Y FLEXBOX */
+.secondary-card {
+  grid-column: span 2; /* Todas ocupan 2 columnas */
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+}
+
+/* Card 2 (Estudios de Mercado) - Top Right */
+.cards-grid-wrapper article:nth-child(2) {
+  grid-column: 3 / span 2; /* Col 3 a 4 */
+  grid-row: 1 / span 1; /* Fila 1 */
+  flex-direction: row; /* Imagen a la izquierda, Contenido a la derecha */
+}
+
+/* Card 3 (Productividad) - Bottom Right */
+.cards-grid-wrapper article:nth-child(3) {
+  grid-column: 3 / span 2; /* Col 3 a 4 */
+  grid-row: 2 / span 1; /* Fila 2 */
+  flex-direction: row-reverse; /* Imagen a la derecha, Contenido a la izquierda */
+}
+
+/* Estilos de las imágenes y contenido de cards secundarias */
+.secondary-card .card-image-wrapper {
+  flex: 1; /* La imagen ocupa 1/3 del ancho */
+  overflow: hidden;
+  min-width: 150px;
+}
+
+.secondary-card .card-content {
+  flex: 2; /* El contenido ocupa 2/3 del ancho */
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* Otros estilos de texto */
+.card-category {
+  color: var(--color-accent);
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+.card-excerpt {
+  color: var(--color-gray);
+  font-size: 0.95rem;
+  margin-bottom: 15px;
+}
+.card-link {
+  color: #959595; /* Color inicial del texto (ej. Azul profesional) */
+  text-decoration: none;
+  font-weight: 600;
+  display: inline-block;
+  padding-bottom: 3px; /* Espacio para que el underline no pegue al texto */
+  position: relative; /* Necesario para posicionar el underline (::after) */
+  
+  /* Transición para el color y el movimiento del texto */
+  transition: color 0.3s ease, transform 0.3s ease-out; 
+}
+
+/* El pseudo-elemento que actuará como underline */
+.card-link::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0; /* Posición justo debajo del texto */
+  width: 0; /* Inicialmente invisible */
+  height: 2px; /* Grosor de la línea */
+  background-color: #ffc400; /* Color del underline animado (ej. Naranja vibrante) */
+  
+  /* Transición para animar el ancho de la línea */
+  transition: width 0.3s ease-in-out; 
+}
+
+.card-link:hover {
+  color: #ffc400; /* El texto cambia de color al hacer hover */
+  transform: translateY(-2px); /* El texto se eleva ligeramente */
+}
+
+.card-link:hover::after {
+  width: 100%; /* La línea se dibuja de izquierda a derecha */
+}
+
+/* === RECUADRO DE ANUNCIO DE RECLUTAMIENTO === */
+
+.recruitment-card {
+  /* Ocupa todo el ancho debajo de la cuadrícula principal */
+  grid-column: 1 / span 4;
+  grid-row: 3 / span 1; /* Se posiciona en la tercera fila */
+background: rgba(255, 255, 255, 0.08);
+border-radius: 16px;
+box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+backdrop-filter: blur(8.8px);
+-webkit-backdrop-filter: blur(8.8px);; /* Degradado más suave */
+  border-radius: 25px; /* Bordes mucho más redondos */
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  transition: all 0.3s ease-in-out !important;
+  transform: none !important;
+}
+#exception{
+  text-align: center;
+  margin-bottom: 0;
+}
+#exception h2{
+  padding-bottom: 0;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+.recruitment-card:hover {
+  transform: translateY(-5px);
+  /* Sombra más suave y difuminada */
+  box-shadow: 0 1px 10px var(--dorado), 0 0 0 3px var(--dorado); /* Sutil glow interior */
+}
+
+/* Estilos del contenido del anuncio */
+.recruitment-content {
+  max-width: 800px;
+}
+
+.recruitment-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 25px;
+}
+
+.recruitment-icon {
+  font-size: 2.5rem;
+  margin-right: 20px;
+  color: var(--color-warning);
+}
+
+.recruitment-title {
+  font-size: 2rem;
+  color: var(--color-text-light);
+  font-weight: 700;
+  margin: 0;
+}
+
+.recruitment-main-text {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--color-text-light);
+  margin-bottom: 15px;
+}
+
+.recruitment-details {
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 25px;
+  line-height: 1.6;
+}
+
+.recruitment-cta {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 10px;
+  color: var(--color-text-light);
+}
+
+.recruitment-note {
+  font-size: 0.8rem;
+  color: rgba(241, 196, 15, 0.8);
+  margin-top: 15px;
+  font-style: italic;
+  font-weight: 400;
+}
+
+/* --- ESTILOS PARA EL BOTÓN ÚNICO DE GMAIL --- */
+
+.email-options {
+  display: flex;
+  justify-content: center;
+  margin: 25px 0 30px 0;
+  max-width: 400px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.option-link {
+  display: flex;
+  align-items: center;
+  padding: 12px 25px;
+  border-radius: 50px; /* Bordes de píldora */
+  font-weight: 700;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  width: 100%;
+  justify-content: center;
+}
+
+.option-link:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Estilo específico del botón de Gmail */
+.gmail-link {
+  background-color: #db4437; /* Rojo/Naranja de Google */
+  color: var(--color-text-light);
+  border: 2px solid #db4437;
+}
+
+.gmail-link:hover {
+  background-color: transparent; /* Fondo transparente en hover */
+  color: #db4437;
+}
+
+.gmail-icon {
+  font-weight: 900;
+  font-size: 1.3rem;
+  margin-right: 10px;
+  color: white;
+}
+
+/* ======================================= */
+/* RESPONSIVE DESIGN */
+/* ======================================= */
+
+@media (max-width: 992px) {
+  .cards-grid-wrapper {
+    grid-template-columns: 1fr 1fr; /* Dos columnas en tabletas */
+  }
+
+  .main-card,
+  .secondary-card,
+  .recruitment-card {
+    grid-column: span 2;
+    grid-row: auto;
+  }
+
+  .main-card {
+    grid-template-rows: 60% 40%;
+  }
+
+  .secondary-card {
+    flex-direction: column; /* Apilar imagen y contenido verticalmente */
+  }
+
+  .secondary-card .card-image-wrapper {
+    height: 200px;
+    min-width: unset;
+  }
+
+  .recruitment-card {
+    padding: 30px 20px;
+    border-radius: 20px;
+  }
+  .recruitment-title {
+    font-size: 1.7rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .cards-grid-wrapper {
+    grid-template-columns: 1fr; /* Una sola columna en móvil */
+  }
+
+  .main-card,
+  .secondary-card,
+  .recruitment-card {
+    grid-column: 1 / span 1;
+    grid-row: auto;
+  }
+
+  .main-card {
+    grid-template-rows: 50% 50%;
+  }
+
+  .email-options {
+    max-width: none;
+    margin-left: 0;
+    margin-right: 0;
+    padding: 0 15px;
+  }
+  .option-link {
+    width: 100%;
+  }
+}
+/* ================================  Footer ================================ */
+footer {
+  background: rgba(27, 28, 20, 0.95);
+  padding: 60px 50px 30px;
+  border-top: 2px solid var(--dorado);
+  position: relative;
+  z-index: 2;
+}
+footer::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--dorado),
+    var(--naranja-cobre),
+    var(--cafe-quemado),
+    transparent
+  );
+  animation: borderFlow 4s ease-in-out infinite;
+}
+@keyframes borderFlow {
+  0%,
+  100% {
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.footer-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 40px;
+  margin-bottom: 40px;
+}
+.footer-section h4 {
+  color: var(--dorado);
+  font-size: 1.4em;
+  margin-bottom: 20px;
+}
+.footer-links {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+.footer-links a {
+  color: var(--beige-grisaceo);
+  text-decoration: none;
+  transition: all 0.3s ease;
+  padding-left: 0;
+}
+.footer-links a:hover {
+  color: var(--dorado);
+  padding-left: 10px;
+  text-shadow: 0 0 10px rgba(228, 169, 67, 0.6);
+}
+.footer-bottom {
+  text-align: center;
+  padding-top: 30px;
+  border-top: 1px solid rgba(228, 169, 67, 0.3);
+}
+.footer-bottom p {
+  color: var(--beige-grisaceo);
+  margin-bottom: 10px;
+}
+.footer-tagline {
+  color: var(--dorado);
+  font-size: 1.1em;
+  font-style: italic;
+}
+
+/* ===================================================
+   FORMULARIO / Responsive
+   =================================================== */
+
+/* Ajustes generales para móviles */
+@media (max-width: 600px) {
+    .registro-super {
+        padding: 50px 15px; /* Reducir padding vertical y horizontal */
+    }
+    .registro-card {
+        padding: 30px; /* Reducir padding interno de la tarjeta */
+        border-radius: 15px;
+    }
+    
+    .titulo-registro {
+        font-size: 1.8rem; /* Título más pequeño */
+    }
+
+    .subtitulo-registro {
+        font-size: 0.95rem;
+        margin-bottom: 25px;
+    }
+
+    .form-modern input,
+    .form-modern select {
+        padding: 14px 12px; /* Reducir padding de inputs */
+        font-size: 0.95rem;
+    }
+
+    .form-modern label {
+        font-size: 0.95rem;
+    }
+
+    /* Ajustar el tamaño del label flotante */
+    .form-modern input:focus + label,
+    .form-modern input:not(:placeholder-shown) + label,
+    .form-modern select:focus + label,
+    .form-modern select:not([value=""]) + label {
+        top: -6px;
+        left: 8px;
+        font-size: 0.7rem;
+    }
+    
+    .btn-modern {
+        padding: 14px;
+        font-size: 1.1rem;
+    }
+}
+
+/* =======================================================
+   Dynamic Cards Responsive - FIXED & OPTIMIZED
+   ======================================================= */
+
+/* ------------------ TABLET (MAX 992PX) ------------------ */
+@media (max-width: 992px) {
+
+    .dynamic-cards-section {
+        padding: 60px 20px;
+    }
+
+    .dynamic-title {
+        font-size: 2.2rem;
+    }
+
+    /* GRID a 2 columnas */
+    .cards-grid-wrapper {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 25px;
+    }
+
+    /* TODAS las tarjetas se vuelven verticales */
+    .dynamic-card {
+        display: flex !important;
+        flex-direction: column !important;
+        height: auto !important;
+    }
+
+    /* Imagen ocupa 100% arriba */
+    .dynamic-card .card-image-wrapper {
+        width: 100% !important;
+        height: 200px !important;
+    }
+
+    .dynamic-card .card-content {
+        width: 100% !important;
+        padding: 20px;
+    }
+
+    /* Títulos */
+    .main-card .card-title {
+        font-size: 1.5rem;
+    }
+
+    /* Recruitment ocupa 2 columnas */
+    .recruitment-card {
+        grid-column: 1 / span 2;
+    }
+}
+
+/* ------------------ MÓVILES (MAX 576PX) ------------------ */
+@media (max-width: 576px) {
+
+    .dynamic-cards-section {
+        padding: 40px 15px;
+    }
+
+    .dynamic-title {
+        font-size: 1.8rem;
+    }
+
+    /* GRID a 1 columna */
+    .cards-grid-wrapper {
+        grid-template-columns: 1fr;
+        gap: 18px;
+    }
+
+    /* Todas las tarjetas una encima de la otra */
+    .dynamic-card,
+    .main-card,
+    .secondary-card,
+    .recruitment-card {
+        grid-column: 1 / span 1 !important;
+        display: flex !important;
+        flex-direction: column !important;
+        height: auto !important;
+        width: 100% !important;
+    }
+
+    /* Imagen ocupa todo el ancho arriba */
+    .dynamic-card .card-image-wrapper {
+        width: 100% !important;
+        height: 170px !important;
+    }
+
+    .secondary-card .card-image-wrapper {
+        height: 140px !important;
+    }
+
+    /* Contenido */
+    .dynamic-card .card-content {
+        width: 100% !important;
+        padding: 15px;
+    }
+
+    /* Texto */
+    .main-card .card-title {
+        font-size: 1.3rem;
+    }
+
+    .card-category {
+        font-size: 0.75rem;
+    }
+
+    .card-excerpt {
+        font-size: 0.82rem;
+    }
+
+    /* Recruitment Card */
+    .recruitment-header {
+        flex-direction: column !important;
+        text-align: center;
+        gap: 8px;
+    }
+
+    .recruitment-icon {
+        font-size: 2rem;
+    }
+
+    .recruitment-title {
+        font-size: 1.25rem;
+    }
+
+    .recruitment-main-text,
+    .recruitment-details {
+        font-size: 0.85rem;
+    }
+
+    .option-link {
+        font-size: 0.9rem;
+        padding: 8px 15px;
+    }
+}
+
+/* ===================================================
+   Footer - Responsive
+   =================================================== */
+
+/* Ajustes para tablets (Hasta 992px) */
+@media (max-width: 992px) {
+    footer {
+        padding: 50px 30px 20px;
+    }
+    
+    .footer-grid {
+        /* Permitir que la grilla se ajuste, manteniendo un tamaño mínimo decente */
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 30px;
+    }
+
+    .footer-section h4 {
+        font-size: 1.3em;
+    }
+}
+
+/* Ajustes para móviles (Hasta 576px) */
+@media (max-width: 576px) {
+    footer {
+        padding: 40px 20px 15px;
+    }
+    
+    .footer-grid {
+        /* Forzar una columna para que se apilen verticalmente y ocupen todo el ancho */
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+    
+    .footer-section h4 {
+        font-size: 1.2em;
+        margin-bottom: 15px;
+    }
+    
+    .footer-links a {
+        font-size: 0.9em;
+    }
+
+    .footer-bottom {
+        padding-top: 20px;
+    }
+    .footer-bottom p {
+        font-size: 0.9em;
+    }
+    .footer-tagline {
+        font-size: 1em;
+    }
+}

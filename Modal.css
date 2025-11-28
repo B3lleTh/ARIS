@@ -1,0 +1,66 @@
+/* --- ESTILOS DEL MODAL DE RESPUESTA --- */
+
+/* Contenedor del Modal (Fondo oscuro y centrado) */
+.result-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7); /* Fondo semi-transparente */
+    display: none; /* Oculto por defecto */
+    justify-content: center;
+    align-items: center;
+    z-index: 1000; /* Asegura que esté por encima de todo */
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+/* Modal visible */
+.result-modal.active {
+    display: flex;
+    opacity: 1;
+}
+
+/* Contenido de la tarjeta del Modal */
+.modal-content {
+    background: #1e1e1e; /* Fondo oscuro, futurista */
+    color: #f1f1f1;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    text-align: center;
+    max-width: 400px;
+    transform: translateY(-20px);
+    transition: transform 0.3s ease;
+}
+
+.result-modal.active .modal-content {
+    transform: translateY(0);
+}
+
+.modal-icon {
+    font-size: 3rem;
+    margin-bottom: 15px;
+}
+
+/* Estilos específicos para éxito */
+.modal-content.success .modal-icon {
+    color: #4CAF50; /* Verde */
+}
+.modal-content.success h3 {
+    color: #4CAF50;
+}
+
+/* Estilos específicos para error/duplicado */
+.modal-content.error .modal-icon {
+    color: #FF5733; /* Rojo/Naranja */
+}
+.modal-content.error h3 {
+    color: #FF5733;
+}
+
+.modal-message {
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+}

@@ -1,0 +1,277 @@
+/* ------------------------------------------------ */
+/* PARTE 1: ESTILOS BASE Y VARIABLES (DE styles.css) */
+/* ------------------------------------------------ */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Camp;
+}
+:root {
+    --cafe-oscuro: #32291C;
+    --beige-grisaceo: #A09387;
+    --naranja-cobre: #89491E;
+    --negro-verdoso: #1B1C14;
+    --dorado: #E4A943;
+    --blanco-calido: #F1F1EF;
+    --marron-gris: #6F6253;
+    --cafe-quemado: #5C381F;
+}
+/* FOTNS */
+@font-face {
+    font-family: 'Camp';
+    src: url(Assets/FONTS/CamptonMedium.otf);
+}
+@font-face {
+    font-family: 'Orb';
+    src: url(Assets/FONTS/Designer.otf);
+}
+/* FOTNS */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: var(--negro-verdoso);
+    color: var(--blanco-calido);
+    overflow-x: hidden;
+    min-height: 100vh;
+    line-height: 1.6;
+    position: relative;
+    /* Ajuste clave para el modo minimalista */
+    padding-top: 0 !important; 
+}
+
+
+/* ------------------------------------------------ */
+/* PARTE 2: ESTILOS DE LA PÁGINA DE CARRERA (CareerDetail.css) */
+/* ------------------------------------------------ */
+
+/* SECCIÓN PRINCIPAL: TÍTULO Y BOTÓN DE REGRESO */
+
+.career-detail-hero {
+    padding: 80px 5% 40px; /* Reduje un poco el padding superior al eliminar el header */
+    background-color: var(--negro-verdoso);
+}
+
+.career-header-content {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.career-main-title {
+    font-family: 'Orb'; 
+    font-size: clamp(2rem, 5vw, 4rem);
+    color: var(--dorado); 
+    margin-bottom: 20px;
+    text-shadow: 0 0 10px rgba(228, 169, 67, 0.4);
+}
+
+.back-button {
+    display: inline-block;
+    color: var(--beige-grisaceo);
+    text-decoration: none;
+    font-size: 1rem;
+    padding: 10px 15px;
+    border: 1px solid var(--beige-grisaceo);
+    border-radius: 4px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.back-button:hover {
+    background-color: var(--marron-gris);
+    color: var(--blanco-calido);
+}
+
+/* CARD DE DETALLE DE CARRERA (Escalable y Grande) */
+
+.career-container-section {
+    padding: 40px 5%;
+    background-color: var(--cafe-oscuro);
+}
+
+.career-cards-wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.main-career-card {
+    display: flex;
+    flex-direction: row; 
+    background: var(--cafe-oscuro);
+    border: 1px solid var(--marron-gris);
+    border-radius: 12px;
+    overflow: hidden;
+    margin-bottom: 50px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+}
+
+.career-image-wrapper {
+    flex: 1;
+    min-height: 400px;
+}
+
+.career-card-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.career-content {
+    flex: 2;
+    padding: 40px;
+}
+
+.career-category {
+    color: var(--naranja-cobre);
+    font-size: 0.9rem;
+    margin-bottom: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.career-name {
+    font-size: clamp(1.8rem, 4vw, 3rem);
+    color: var(--blanco-calido);
+    margin-bottom: 25px;
+    font-family: 'Camp';
+}
+
+.career-description p {
+    margin-bottom: 15px;
+    color: var(--beige-grisaceo);
+    line-height: 1.7;
+}
+
+.key-skills-list {
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid var(--marron-gris);
+}
+
+.key-skills-list h3 {
+    color: var(--dorado);
+    margin-bottom: 15px;
+    font-size: 1.3rem;
+}
+
+.key-skills-list ul {
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px 20px;
+}
+
+.key-skills-list li {
+    background: rgba(160, 147, 135, 0.15); 
+    color: var(--blanco-calido);
+    padding: 6px 12px;
+    border-radius: 4px;
+    font-size: 0.95rem;
+}
+
+.career-cta-button {
+    display: inline-block;
+    margin-top: 30px;
+    background-color: var(--dorado);
+    color: var(--negro-verdoso);
+    padding: 12px 25px;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 6px;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.career-cta-button:hover {
+    background-color: #f5b958; 
+    transform: translateY(-2px);
+}
+
+/* SECCIÓN DE CARRERAS RELACIONADAS */
+
+.separator {
+    max-width: 1200px;
+    margin: 0 auto;
+    border: 0;
+    height: 1px;
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0), var(--marron-gris), rgba(0, 0, 0, 0));
+}
+
+.related-careers-section {
+    padding: 50px 5% 80px;
+    background-color: var(--negro-verdoso);
+    text-align: center;
+}
+
+.related-title {
+    font-family: 'Orb';
+    font-size: clamp(1.5rem, 3vw, 2.5rem);
+    color: var(--blanco-calido);
+    margin-bottom: 40px;
+}
+
+.related-careers-grid {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 25px;
+}
+
+.related-card {
+    background: var(--cafe-oscuro);
+    padding: 25px;
+    border-radius: 8px;
+    border-top: 3px solid var(--naranja-cobre);
+    text-align: left;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.related-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.5);
+}
+
+.related-card h3 {
+    color: var(--blanco-calido);
+    margin-bottom: 10px;
+    font-size: 1.2rem;
+}
+
+.related-card p {
+    color: var(--beige-grisaceo);
+    margin-bottom: 15px;
+    font-size: 0.9rem;
+}
+
+.related-link {
+    display: inline-block;
+    color: var(--dorado);
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 0.9rem;
+    transition: color 0.3s;
+}
+
+.related-link:hover {
+    color: #f5b958;
+}
+
+/* Media Queries (Responsive para Móviles/Tablets) */
+@media (max-width: 900px) {
+    .main-career-card {
+        flex-direction: column; 
+    }
+
+    .career-image-wrapper {
+        min-height: 250px;
+        flex: none;
+    }
+
+    .career-content {
+        padding: 30px;
+    }
+
+    .key-skills-list li {
+        font-size: 0.85rem;
+    }
+}

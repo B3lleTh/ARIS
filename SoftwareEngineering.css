@@ -1,0 +1,643 @@
+/* =============================== */
+/* VARIABLES DE COLOR (Actualizadas) */
+/* =============================== */
+
+:root {
+    --negro-verdoso: #1B1C14; /* Fondo Oscuro Principal */
+    --cafe-oscuro: #32291C; /* Fondo de Tarjetas/Secciones */
+    --cafe-quemado: #5C381F; /* Fondo de Destacados */
+    --marron-gris: #6F6253; /* Separadores/Texto Secundario */
+    --naranja-cobre: #89491E; /* Acentos/Bordes */
+    --dorado: #E4A943; /* Texto Principal/Oro Brillante */
+    --blanco-calido: #F1F1EF; /* Texto Claro Principal */
+    --beige-grisaceo: #A09387; /* Texto Secundario */
+}
+
+/* =============================== */
+/* REGLAS GLOBALES (Se mantienen) */
+/* =============================== */
+
+body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    background: var(--negro-verdoso);
+    color: var(--blanco-calido);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    flex-grow: 1;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+    height: auto;
+}
+
+h1, h2, h3, h4 {
+    margin: 0;
+}
+
+.separator {
+    max-width: 90%;
+    margin: 50px auto;
+    border: none;
+    height: 1px;
+    background: linear-gradient(to right, transparent, var(--marron-gris), transparent);
+}
+
+.vault-container,
+.resource-container,
+.practice-container,
+.internship-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 6%;
+}
+
+/* ============================================= */
+/* TITULOS Y BOTONES (Ajuste de Colores) */
+/* ============================================= */
+
+.section-title {
+    font-size: clamp(2rem, 4vw, 3rem);
+    text-align: center;
+    color: var(--dorado); /* Color Dorado Destacado */
+    margin-bottom: 40px;
+    font-weight: 800;
+}
+
+.section-title span {
+    font-size: 0.6em;
+    color: var(--marron-gris);
+    display: block;
+    font-weight: normal;
+}
+
+.cta-button {
+    background: var(--dorado);
+    color: var(--negro-verdoso);
+    padding: 10px 20px;
+    border-radius: 6px;
+    font-weight: bold;
+    text-decoration: none;
+    transition: 0.3s;
+    border: none;
+    cursor: pointer;
+    display: inline-block;
+    text-align: center;
+}
+
+.cta-button:hover {
+    transform: translateY(-2px);
+    background: #f5b958; /* Tono más claro de Dorado para hover */
+}
+
+.cta-button.secondary {
+    background: var(--naranja-cobre);
+    color: var(--blanco-calido);
+}
+
+.cta-button.secondary:hover {
+    background: #733c17; /* Tono más oscuro de Cobre para hover */
+}
+
+.cta-button.resource-access-btn {
+    margin-top: 15px;
+    padding: 8px 15px;
+    font-size: 0.9rem;
+    background: var(--marron-gris);
+    color: var(--blanco-calido);
+}
+
+.cta-button.resource-access-btn:hover {
+    background: var(--naranja-cobre);
+    transform: none;
+}
+
+.cta-button.small-cta {
+    padding: 8px 15px;
+    font-size: 0.9rem;
+    margin-top: 15px;
+}
+
+/* ============================================= */
+/* HERO (Ajuste de Colores) */
+/* ============================================= */
+
+.career-detail-hero {
+    /* MODIFICACIÓN CLAVE: Agregando el Overlay */
+    background-image: 
+        /* 1. Capa de Overlay (Negro Semitransparente) */
+        linear-gradient(rgba(27, 28, 20, 0.85), rgba(27, 28, 20, 0.75)), 
+        /* 2. Tu Imagen de Fondo */
+        url(Assets/IMG/bgcareer.jpg);
+        
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    padding: 80px 6%;
+    text-align: center;
+    border-bottom: 5px solid var(--naranja-cobre);
+}
+
+.career-header-content {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.career-main-title {
+    font-size: clamp(3rem, 6vw, 4.5rem);
+    color: var(--dorado);
+    text-shadow: 0 3px 5px #00000088;
+    margin-bottom: 20px;
+}
+
+.back-button {
+    display: inline-block;
+    color: black;
+    text-decoration: none;
+    margin-top: 15px;
+    font-size: 1.1rem;
+    padding: 15px 30px;
+    border-radius: 5px;
+    transition: 0.3s;
+    background-color: var(--dorado);
+    font-weight: bold;
+    border: none;
+}
+
+.back-button:hover {
+    color: var(--dorado);
+    background: var(--negro-verdoso);
+    text-shadow: 0 1px 1px #ffc400aa;
+}
+
+/* ============================================= */
+/* SOFT SKILLS (Ajuste de Colores) */
+/* ============================================= */
+
+.soft-skills-vault {
+    padding: 60px 6%;
+}
+
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+@media (max-width: 900px) {
+    .skills-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .skills-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.skill-card {
+    background: var(--cafe-oscuro);
+    padding: 25px;
+    border-radius: 10px;
+    border-left: 5px solid var(--naranja-cobre);
+    box-shadow: 0 4px 10px #00000055;
+    display: flex;
+    flex-direction: column;
+}
+
+.skill-image-wrapper {
+    width: 100%;
+    height: 180px;
+    overflow: hidden;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+.skill-image-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.skill-card h3 {
+    margin: 10px 0;
+    color: var(--dorado);
+    font-size: 1.4rem;
+}
+
+.skill-card p {
+    color: var(--beige-grisaceo);
+    line-height: 1.6;
+    flex-grow: 1;
+}
+
+/* ============================================= */
+/* ENTREVISTA DESTACADA (Ajuste de Colores) */
+/* ============================================= */
+
+.interview-prep-section {
+    margin-top: 60px;
+    background: var(--cafe-quemado);
+    padding: 40px;
+    border-radius: 10px;
+    text-align: center;
+    border: 1px solid var(--marron-gris);
+}
+
+.subsection-title {
+    color: var(--dorado);
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+}
+
+.prep-intro-text {
+    color: var(--beige-grisaceo);
+    margin-bottom: 30px;
+}
+
+.highlight-q-a {
+    margin: 30px auto;
+    background: var(--negro-verdoso);
+    padding: 25px;
+    border-radius: 6px;
+    border-left: 5px solid var(--dorado);
+    text-align: left;
+}
+
+.highlight-q-a .question {
+    color: var(--dorado);
+    font-weight: bold;
+    margin-bottom: 10px;
+    font-size: 1.1rem;
+}
+
+.highlight-q-a .answer {
+    color: var(--beige-grisaceo);
+    font-style: italic;
+    line-height: 1.6;
+}
+
+/* ============================================= */
+/* EXTERNAL RESOURCES (Ajuste de Colores) */
+/* ============================================= */
+
+.external-resources-section {
+    padding: 60px 0;
+    background: var(--cafe-oscuro);
+}
+
+.resources-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 25px;
+}
+
+.resource-card {
+    background: var(--negro-verdoso);
+    padding: 25px;
+    border-radius: 10px;
+    border: 1px solid transparent;
+    transition: 0.3s;
+    display: flex;
+    flex-direction: column;
+}
+
+.resource-card:hover {
+    border-color: var(--dorado);
+    box-shadow: 0 0 15px rgba(228, 169, 67, 0.25); /* Sombra con el nuevo dorado */
+}
+
+.resource-icon-box {
+    font-size: 2rem;
+    margin-bottom: 15px;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--naranja-cobre);
+    border-radius: 50%;
+    color: var(--negro-verdoso);
+}
+
+.resource-card h3 {
+    font-size: 1.3rem;
+    color: var(--dorado);
+    margin-bottom: 10px;
+}
+
+.resource-card p {
+    color: var(--beige-grisaceo);
+    line-height: 1.5;
+    flex-grow: 1;
+}
+
+/* ============================================= */
+/* PRACTICE SECTION (Ajuste de Colores) */
+/* ============================================= */
+
+.practice-section {
+    padding: 60px 6%;
+    text-align: center;
+}
+
+.practice-intro {
+    color: var(--beige-grisaceo);
+    margin-bottom: 30px;
+}
+
+.practice-controls {
+    margin-bottom: 30px;
+}
+
+.practice-btn {
+    background: var(--marron-gris);
+    color: var(--blanco-calido);
+    margin: 0 10px;
+}
+
+.practice-btn:hover {
+    background: var(--marron-gris);
+    transform: none;
+}
+
+.practice-btn.active {
+    background: var(--naranja-cobre);
+    color: var(--blanco-calido);
+    border: 2px solid var(--dorado);
+}
+
+.practice-btn.active:hover {
+    background: #733c17;
+}
+
+.practice-exercise-card {
+    background: var(--cafe-oscuro);
+    padding: 30px;
+    border-radius: 10px;
+    border: 2px solid var(--naranja-cobre);
+    max-width: 900px;
+    margin: auto;
+    text-align: left;
+}
+
+#exercise-title {
+    color: var(--dorado);
+    font-size: 1.6rem;
+    margin-bottom: 15px;
+}
+
+.exercise-details h4 {
+    color: var(--naranja-cobre);
+    margin-top: 15px;
+    font-size: 1.1rem;
+    border-bottom: 1px solid var(--marron-gris);
+    padding-bottom: 5px;
+}
+
+#exercise-output {
+    background: var(--negro-verdoso);
+    padding: 10px;
+    border-radius: 4px;
+    overflow-x: auto;
+    color: #00ff7f;
+}
+
+#exercise-time {
+    color: var(--dorado);
+    font-weight: bold;
+}
+
+/* ============================================= */
+/* INTERNSHIPS (Ajuste de Colores) */
+/* ============================================= */
+
+.internship-section {
+    padding: 60px 0;
+    background: var(--cafe-oscuro);
+}
+
+.internship-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.internship-card {
+    background: var(--negro-verdoso);
+    padding: 0;
+    border-radius: 12px;
+    border: 2px solid var(--dorado);
+    transition: 0.3s;
+    box-shadow: 0 4px 12px #00000055;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.internship-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 15px rgba(228, 169, 67, 0.35); /* Sombra con el nuevo dorado */
+}
+
+.internship-image-wrapper {
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+}
+
+.internship-image-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s;
+}
+
+.internship-card:hover .internship-image-wrapper img {
+    transform: scale(1.05);
+}
+
+.card-content {
+    padding: 25px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.card-content h3 {
+    font-size: 1.5rem;
+    color: var(--dorado);
+    margin-bottom: 5px;
+}
+
+.card-content .role {
+    color: var(--naranja-cobre);
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.card-content .location {
+    color: var(--beige-grisaceo);
+    font-style: italic;
+    font-size: 0.95rem;
+    margin-bottom: 10px;
+}
+
+/* ============================================= */
+/* AJUSTE ESPECÍFICO: FOCUS TAG */
+/* ============================================= */
+
+.focus-tag {
+    /* Contraste mejorado y aspecto más pulido */
+    background: var(--naranja-cobre);
+    color: var(--negro-verdoso); /* Color de texto oscuro para alto contraste */
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-size: 0.85rem;
+    font-weight: bold;
+    /* Usamos Flexbox para el contenedor de etiquetas si hubiera más */
+    display: inline-block; 
+    margin: 10px 5px 20px 0; /* Un poco de margen a la derecha y abajo */
+    text-transform: uppercase; /* Estilo profesional */
+    letter-spacing: 0.5px;
+    text-align: center;
+}
+
+/* Si tuvieras varias etiquetas dentro de un contenedor, este estilo las manejaría mejor: */
+.tag-container {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 10px;
+}
+/* Tendrías que envolver tus focus-tags con <div class="tag-container">...</div> */
+
+/* ============================================= */
+/* AJUSTE ESPECÍFICO: FOOTER REFINADO (NAVIGATE) */
+/* ============================================= */
+
+.inspirational-footer {
+    padding: 50px 6% 20px;
+    background: var(--negro-verdoso);
+    border-top: 4px solid var(--naranja-cobre);
+    margin-top: auto;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 35px;
+    align-items: start;
+}
+
+/* Se asegura de que la columna de enlaces esté siempre visible y bien estructurada */
+.footer-links-section {
+    /* Asegura que ocupe espacio si otras columnas fallan en responsive */
+    min-width: 180px; 
+}
+
+.footer-links-section h4 {
+    color: var(--dorado); /* Título de navegación en Dorado */
+    margin-bottom: 15px;
+    font-size: 1.2rem;
+    border-bottom: 1px solid var(--cafe-oscuro); /* Línea sutil bajo el título */
+    padding-bottom: 5px;
+}
+
+/* Aplicando el estilo 'footer-column' directamente a la estructura de enlaces */
+.footer-links-section a { 
+    color: var(--beige-grisaceo);
+    display: block;
+    margin-bottom: 10px;
+    text-decoration: none;
+    transition: 0.3s;
+    padding-left: 10px; /* Pequeño indentado para mejor lectura */
+    border-left: 2px solid transparent; /* Línea de efecto hover */
+}
+
+.footer-links-section a:hover {
+    color: var(--dorado);
+    transform: translateX(5px);
+    border-left: 2px solid var(--dorado); /* Línea de énfasis al pasar el mouse */
+}
+
+/* Estilos de citas (se mantienen, solo se ajustan los colores) */
+.quote-section {
+    padding-right: 20px;
+    border-right: 1px solid var(--cafe-oscuro);
+    height: 100%;
+}
+
+.quote-icon {
+    font-size: 3rem;
+    color: var(--naranja-cobre);
+    line-height: 1;
+    margin-bottom: 10px;
+    display: block;
+    text-align: left;
+}
+
+.quote-text {
+    font-style: italic;
+    color: var(--blanco-calido);
+    margin-bottom: 10px;
+    font-size: 1.1rem;
+    line-height: 1.5;
+}
+
+.quote-author {
+    color: var(--beige-grisaceo);
+    font-size: 0.9rem;
+    text-align: right;
+    display: block;
+}
+
+.footer-bottom {
+    margin-top: 30px;
+    padding-top: 15px;
+    border-top: 1px solid var(--cafe-oscuro);
+    text-align: center;
+    font-size: 0.85rem;
+    color: var(--marron-gris);
+}
+
+/* ============================================= */
+/* RESPONSIVE AJUSTADO */
+/* ============================================= */
+
+@media (max-width: 768px) {
+    .quote-section {
+        border-right: none;
+        border-bottom: 1px solid var(--cafe-oscuro);
+        padding-bottom: 20px;
+        margin-bottom: 20px;
+    }
+
+    .quote-section:last-child {
+        border-bottom: none;
+        padding-bottom: 0;
+        margin-bottom: 0;
+    }
+}
+
+@media (max-width: 600px) {
+    .practice-exercise-card {
+        padding: 18px;
+    }
+
+    .internship-image-wrapper,
+    .skill-image-wrapper {
+        height: 150px;
+    }
+}
