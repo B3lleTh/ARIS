@@ -159,13 +159,13 @@ app.post("/api/gemini", async (req, res) => {
     // Extraer respuesta del modelo
     const text =
       response.data?.candidates?.[0]?.content?.parts?.[0]?.text ||
-      "Volvemos pronto. Algo salió mal.";
+      "Vuelve a Intentarlo, intenta volver a plantear la pregunta o duda";
 
     res.json({ reply: text });
   } catch (error) {
     // Manejo de errores de la API externa
-    console.error("❌ ERROR GEMINI:", error);
-    res.json({ reply: "Estamos 🛠️ en mantenimiento." });
+    console.error("ERROR GEMINI:", error);
+    res.json({ reply: "Estamos en mantenimiento." });
   }
 });
 

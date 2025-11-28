@@ -3,7 +3,7 @@
     {
       "id": 1,
       "discipline": "frontend",
-      "title": "DOM Manipulation: Simple Counter",
+      "title": "JS : DOM Manipulation: Simple Counter",
       "description": "Create a function `updateCounter()` that, when called, increases the numerical content of an HTML element with the ID 'count-display' by one. Ensure the initial state is 0 and handle potential NaN issues.",
       "time_estimate": "10 min",
       "expected_output": "The HTML element with ID 'count-display' will sequentially show: 1, 2, 3, ... after each click/call."
@@ -11,7 +11,7 @@
     {
       "id": 2,
       "discipline": "backend",
-      "title": "Algorithm: Array Deduplication",
+      "title": "JS : Algorithm: Array Deduplication",
       "description": "Write a function `removeDuplicates(arr)` that accepts an array of integers and returns a new array containing only the unique elements, maintaining the original order. You must achieve O(n) time complexity.",
       "time_estimate": "10 min",
       "expected_output": "Input: [1, 5, 2, 5, 1, 9]. Output: [1, 5, 2, 9]."
