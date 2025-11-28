@@ -54,7 +54,15 @@ body {
 
 .career-detail-hero {
     padding: 80px 5% 40px;              /* Espaciado superior, lateral y inferior */
-    background-color: var(--negro-verdoso); /* Fondo de la sección */
+    background-image: 
+
+    linear-gradient(rgba(27, 28, 20, 0.55), rgba(27, 28, 20, 0.65)),
+
+    url(Assets/IMG/p1.jpg);
+
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 .career-header-content {
@@ -72,18 +80,19 @@ body {
 
 .back-button {
     display: inline-block;             /* Botón en línea con padding */
-    color: var(--beige-grisaceo);      /* Color de texto */
+    color: black;      /* Color de texto */
+    background-color: var(--dorado); /* Fondo dorado */
     text-decoration: none;             /* Sin subrayado */
     font-size: 1rem;
     padding: 10px 15px;                /* Espaciado interno */
-    border: 1px solid var(--beige-grisaceo); /* Borde */
     border-radius: 4px;                /* Esquinas redondeadas */
     transition: background-color 0.3s, color 0.3s; /* Suaviza hover */
 }
 
 .back-button:hover {
-    background-color: var(--marron-gris); /* Fondo al pasar mouse */
-    color: var(--blanco-calido);          /* Texto al pasar mouse */
+    color: var(--dorado); /* Texto dorado al pasar el mouse */
+    background: var(--negro-verdoso); /* Fondo oscuro */
+    text-shadow: 0 1px 1px #ffc400aa; /* Sombra ligera */
 }
 
 /* CARD DE DETALLE DE CARRERA (Escalable y Grande) */
