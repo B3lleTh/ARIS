@@ -17,9 +17,8 @@ console.log(
 // IMPORTS
 // ============================
 const express = require("express"); // Framework web para Node.js
-const cors = require("cors");       // Middleware para permitir CORS
-const axios = require("axios");     // Cliente HTTP para llamadas externas
-
+const cors = require("cors"); // Middleware para permitir CORS
+const axios = require("axios"); // Cliente HTTP para llamadas externas
 // 1. IMPORTACIÓN AJUSTADA: Importamos la conexión a DB y función utilitaria
 const { db, getActiveStudentsCount } = require("./db");
 
@@ -31,103 +30,72 @@ app.use(cors());
 app.use(express.json());
 
 // ==========================
-// RUTA PRINCIPAL (PARA RENDER)
+// PRINCIPAL (PARA RENDER)
 // ==========================
 app.get("/", (req, res) => {
   res.send("Servidor backend funcionando correctamente."); // Simple prueba de salud
 });
 
 // ==========================
-// RUTA: Obtener Conteo de Estudiantes
-// ==========================
-app.get("/api/stats/students", async (req, res) => {
-  try {
-    // Obtener número de estudiantes activos usando función del módulo db
-    const count = await getActiveStudentsCount();
-    res.json({ studentsCount: count });
-  } catch (error) {
-    // Manejo de error
-    console.error("❌ Error en la ruta /api/stats/students:", error);
-    res
-      .status(500)
-      .json({ message: "Error al obtener estadísticas.", studentsCount: 0 });
-  }
-});
-
-// ==========================
-// RUTA: Registrar usuario
+// Obtener Conteo de Estudiantes
 // ==========================
 app.post("/api/registro", async (req, res) => {
-  // Extraer datos enviados desde el body
-  let { email, nombre, carrera, recibir } = req.body;
-
-  // ================================
-  // NORMALIZACIÓN DE DATOS
-  // ================================
-  email = email.trim().toLowerCase(); // Minusculas y sin espacios
-  nombre = nombre.trim();
-  carrera = carrera.trim();
-  recibir = !!recibir; // Garantiza true/false
-
-  // 1. Verificar si ya existe el usuario antes de insertar
-  const checkSql = `SELECT email FROM usuarios WHERE email = ?`;
-
   try {
-    const [existingUsers] = await db.query(checkSql, [email]);
+    let { nombre, email, carrera, recibir } = req.body;
 
-    // Si la consulta devuelve resultados, el usuario ya existe
-    if (existingUsers && existingUsers.length > 0) {
-      console.warn(
-        `⚠️ Registro denegado: Email duplicado detectado por SELECT: ${email}`
-      );
+    // 1. NORMALIZACIÓN REAL DEL EMAIL
+    email = email
+      .trim()
+      .toLowerCase()
+      .replace(/\s+/g, "")       // elimina espacios normales e invisibles
+      .normalize("NFKC");        // normaliza unicode
+
+    if (!email || !email.includes("@")) {
+      return res.status(400).json({ message: "Email inválido" });
+    }
+
+    // 2. VALIDAR DUPLICADO CORRECTAMENTE
+    const [existing] = await db.execute(
+      "SELECT id FROM usuarios WHERE email = ? LIMIT 1",
+      [email]
+    );
+
+    if (existing.length > 0) {
       return res.status(409).json({
-        success: false,
-        message: "Este correo ya está registrado.",
+        message: "Este correo ya está registrado."
       });
     }
 
-    // 2. Inserción del nuevo usuario en la base de datos
-    const insertSql = `
-            INSERT INTO usuarios (email, nombre, carrera_interes, recibir_correos)
-            VALUES (?, ?, ?, ?)
-        `;
+    // 3. INSERTAR REGISTRO
+    await db.execute(
+      "INSERT INTO usuarios (nombre, email, carrera_interes, recibir) VALUES (?, ?, ?, ?)",
+      [nombre, email, carrera, recibir]
+    );
 
-    const [result] = await db.query(insertSql, [
-      email,
-      nombre,
-      carrera,
-      recibir,
-    ]);
-
-    // Respuesta exitosa
-    res.status(201).json({
-      success: true,
-      message: "Usuario registrado correctamente.",
+    return res.status(200).json({
+      message: "Registro exitoso."
     });
-  } catch (err) {
-    // Manejo de errores inesperados o de duplicado no detectado
-    if (err.code === "ER_DUP_ENTRY" || err.errno === 1062) {
-      console.error(
-        `❌ Error de duplicado: ${email}. El SELECT no lo detectó.`,
-        err
-      );
+
+  } catch (error) {
+    console.error("ERROR REGISTRO:", error);
+
+    // 4. Detectar duplicados por constraint del MySQL
+    if (error.code === "ER_DUP_ENTRY") {
       return res.status(409).json({
-        success: false,
-        message: "Este correo ya está registrado.",
+        message: "Este correo ya estaba registrado."
       });
     }
 
-    // Otros errores graves del servidor
-    console.error("❌ Error grave en el servidor durante el registro:", err);
     return res.status(500).json({
-      success: false,
-      message: "Error en el servidor al intentar registrar.",
+      message: "Error interno del servidor."
     });
   }
 });
 
+
+
 // ==========================
-// Gemini 
+// Gemini
 // ==========================
 app.post("/api/gemini", async (req, res) => {
   const { systemPrompt, history, userMessage } = req.body;
@@ -142,9 +110,8 @@ app.post("/api/gemini", async (req, res) => {
       }\n`;
     });
 
-    conversationText += `Usuario: ${userMessage}\nARIS:`;
+    conversationText += `Usuario: ${userMessage}\nARIS:`; // Llamada a la API de Gemini
 
-    // Llamada a la API de Gemini 
     const response = await axios.post(
       `https://generativelanguage.googleapis.com/v1/models/gemini-2.5-flash:generateContent?key=${process.env.GEMINI_API_KEY}`,
       {
@@ -154,9 +121,8 @@ app.post("/api/gemini", async (req, res) => {
           maxOutputTokens: 600,
         },
       }
-    );
+    ); // Extraer respuesta del modelo
 
-    // Extraer respuesta del modelo
     const text =
       response.data?.candidates?.[0]?.content?.parts?.[0]?.text ||
       "Vuelve a Intentarlo, intenta volver a plantear la pregunta o duda";

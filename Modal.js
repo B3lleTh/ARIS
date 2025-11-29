@@ -8,23 +8,21 @@ function showModal(type, title, message) {
   const modalMessage = modal.querySelector(".modal-message");
   const modalIcon = modal.querySelector(".modal-icon");
 
-  // Limpiar clases y establecer el tipo (success, error, etc.)
+  // Limpiar clases y establecer el tipo
   modalContent.className = "modal-content " + type;
 
-  // Establecer el contenido del modal
+  // Establecer contenido del modal
   modalTitle.textContent = title;
   modalMessage.textContent = message;
 
-  // Iconos: Ajuste para usar '⚠️' en vez de '🚫' para advertencias/errores suaves
-  let icon = "❓"; // Icono por defecto
-  if (type === "success") {
-    icon = "✅";
-  } else if (type === "error") {
-    icon = "⚠️"; // Usamos advertencia para todos los errores, incluido 409
-  }
+  // Icono según tipo
+  let icon = "❓";
+  if (type === "success") icon = "✅";
+  else if (type === "error") icon = "⚠️";
+
   modalIcon.textContent = icon;
 
-  // Activar el modal
+  // Mostrar modal
   modal.classList.add("active");
 }
 
@@ -36,40 +34,41 @@ function initRegisterForm() {
   const modal = document.getElementById("registration-modal");
   const closeBtn = document.getElementById("modal-close-btn");
 
-  // Validar existencia del formulario y modal
   if (!form || !modal) return;
 
-  // Lógica para cerrar el modal al hacer clic en la X
+  // Evitar que se duplique el listener
+  if (form.dataset.bound === "true") return;
+  form.dataset.bound = "true";
+
   closeBtn.addEventListener("click", () => {
     modal.classList.remove("active");
   });
 
-  // Cierra el modal al hacer clic en el fondo gris
   modal.addEventListener("click", (e) => {
-    if (e.target === modal) {
-      modal.classList.remove("active");
-    }
+    if (e.target === modal) modal.classList.remove("active");
   });
 
-  // Manejo del evento submit del formulario
   form.addEventListener("submit", async (e) => {
-    e.preventDefault(); // Evita el envío por defecto
+    e.preventDefault();
 
-    // Bloquea el botón para evitar doble envío
     const submitButton = form.querySelector('button[type="submit"]');
     submitButton.disabled = true;
     submitButton.textContent = "Enviando...";
 
-    // Recopila los datos del formulario
+    let email = document.getElementById("email").value
+      .trim()
+      .toLowerCase()
+      .replace(/\s+/g, "")
+      .normalize("NFKC");
+
     const data = {
       nombre: document.getElementById("nombre").value.trim(),
-      email: document.getElementById("email").value.trim().toLowerCase(),
+      email: email,
       carrera: document.getElementById("carrera_interes").value.trim(),
-      recibir: true,
+      recibir: true
     };
 
     try {
-      // Envía los datos al backend
       const res = await fetch("http://localhost:3000/api/registro", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -78,41 +77,24 @@ function initRegisterForm() {
 
       const json = await res.json();
 
-      // 1. Manejo de la Respuesta del Backend
       if (res.ok) {
-        // Status 200-299 (Éxito)
-        showModal("success", "¡Registro Exitoso!", json.message || "Tu registro ha sido completado.");
-        form.reset(); // Limpia el formulario solo en caso de éxito
+        showModal("success", "¡Registro Exitoso!", json.message);
+        form.reset();
       } else if (res.status === 409) {
-        // Status 409 (Duplicado)
-        showModal(
-          "error",
-          "¡Ya estás Registrado!",
-          json.message || "El correo electrónico que ingresaste ya se encuentra en nuestra base de datos."
-        );
+        showModal("error", "¡Ya estás Registrado!", json.message);
       } else {
-        // Otros errores del servidor (400, 500, etc.)
-        showModal(
-          "error",
-          "Error de Servidor",
-          json.message || "Ocurrió un error inesperado al registrarte."
-        );
+        showModal("error", "Error de Servidor", json.message);
       }
     } catch (error) {
-      // 3. ERROR DE RED/CONEXIÓN
       console.error(error);
-      showModal(
-        "error",
-        "Error de Conexión",
-        "No se pudo conectar con el servidor. Verifica tu conexión e inténtalo de nuevo."
-      );
+      showModal("error", "Error de Conexión", "No se pudo conectar con el servidor.");
     } finally {
-      // Desbloquea el botón al finalizar, independientemente del resultado
       submitButton.disabled = false;
       submitButton.textContent = "Registrarme";
     }
   });
 }
 
-// Asegúrate de llamar a esta función cuando el DOM esté listo
+
+// Inicializar
 initRegisterForm();
